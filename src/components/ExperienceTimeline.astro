@@ -1,0 +1,194 @@
+---
+import { experiences } from '../data/experience';
+import { Briefcase, Building2, MapPin, Sparkles, CheckCircle, HeartHandshake } from 'lucide-astro';
+
+const leadershipRoles = experiences.filter(e => e.isLeadership);
+const engineeringRoles = experiences.filter(e => !e.isLeadership);
+---
+
+<section id="experience" class="py-20 md:py-28 border-b border-zinc-800/60 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700/80 text-xs font-mono text-zinc-300 mb-4">
+        <Briefcase class="w-3.5 h-3.5 text-indigo-400" />
+        Career Evolution
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        From Deep Backend Engineering to Technical Leadership.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-zinc-400 leading-relaxed">
+        A deliberate progression: 10+ years of core banking and high-load backend engineering built an unbreakable foundation, followed by a dedicated shift into people leadership and organizational impact.
+      </p>
+    </div>
+
+    <!-- Timeline Wrapper -->
+    <div class="relative">
+      
+      <!-- Phase 1: Leadership & People Management (Current Era) -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="px-3 py-1 rounded-md bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-mono font-semibold uppercase tracking-wider">
+            Phase 2: People &amp; Technical Leadership (2022 — Present)
+          </span>
+          <div class="h-px flex-1 bg-gradient-to-r from-indigo-800/60 to-transparent"></div>
+        </div>
+
+        <div class="space-y-8">
+          {leadershipRoles.map((item) => (
+            <div class="relative pl-6 sm:pl-8 border-l-2 border-indigo-500/60 group">
+              <!-- Timeline Pin -->
+              <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-zinc-950 border-2 border-indigo-400 group-hover:bg-indigo-500 transition-colors"></div>
+
+              <!-- Card Content -->
+              <div class="p-6 sm:p-7 rounded-2xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:shadow-xl">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                  <div>
+                    <span class="text-xs font-mono text-indigo-400 font-semibold">{item.period}</span>
+                    <h3 class="text-xl font-bold text-white mt-0.5">{item.role}</h3>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm text-zinc-300">
+                    <Building2 class="w-4 h-4 text-zinc-500" />
+                    {item.companyUrl ? (
+                      <a href={item.companyUrl} target="_blank" rel="noopener noreferrer" class="font-medium text-white hover:text-indigo-400 underline underline-offset-4 decoration-zinc-700 hover:decoration-indigo-400 transition-colors">
+                        {item.company}
+                      </a>
+                    ) : (
+                      <span class="font-medium text-white">{item.company}</span>
+                    )}
+                    <span class="text-zinc-600">•</span>
+                    <span class="text-xs text-zinc-400 flex items-center gap-1 font-mono">
+                      <MapPin class="w-3 h-3" /> {item.location}
+                    </span>
+                  </div>
+                </div>
+
+                <p class="text-sm text-zinc-300 leading-relaxed mb-4">
+                  {item.summary}
+                </p>
+
+                <!-- Highlights -->
+                <ul class="space-y-2 mb-5">
+                  {item.highlights.map((h) => (
+                    <li class="flex items-start gap-2.5 text-xs text-zinc-400 leading-relaxed">
+                      <CheckCircle class="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <!-- Skills Chips -->
+                <div class="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-800/80">
+                  {item.skills.map((skill) => (
+                    <span class="px-2.5 py-1 rounded-md bg-zinc-800/80 text-zinc-300 text-[11px] font-mono border border-zinc-700/50">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- THE LEADERSHIP SHIFT WATERSHED BANNER -->
+      <div class="my-12 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-indigo-950/70 via-zinc-900 to-indigo-950/70 border border-indigo-500/40 text-center relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-2xl"></div>
+        <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shrink-0 shadow-md shadow-indigo-900">
+            <Sparkles class="w-4 h-4" />
+          </div>
+          <div class="text-center sm:text-left">
+            <h4 class="text-sm sm:text-base font-bold text-white">
+              January 2022: The Deliberate Shift to People &amp; Technical Management
+            </h4>
+            <p class="text-xs sm:text-sm text-zinc-300 mt-0.5">
+              Transitioned from hands-on backend engineering into technical project and engineering management — combining deep architectural literacy with empathetic people leadership.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2: Engineering Foundation (2011 — 2021) -->
+      <div>
+        <div class="flex items-center gap-3 mb-8">
+          <span class="px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono font-semibold uppercase tracking-wider">
+            Phase 1: Core Engineering &amp; Architecture (2011 — 2021)
+          </span>
+          <div class="h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent"></div>
+        </div>
+
+        <div class="space-y-8">
+          {engineeringRoles.map((item) => (
+            <div class="relative pl-6 sm:pl-8 border-l-2 border-zinc-800 group">
+              <!-- Timeline Pin -->
+              <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-zinc-950 border-2 border-zinc-600 group-hover:border-zinc-400 transition-colors"></div>
+
+              <!-- Card Content -->
+              <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-300">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                  <div>
+                    <span class="text-xs font-mono text-zinc-400">{item.period}</span>
+                    <h3 class="text-lg font-bold text-white mt-0.5">{item.role}</h3>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm text-zinc-400">
+                    <Building2 class="w-4 h-4 text-zinc-600" />
+                    <span class="font-medium text-zinc-200">{item.company}</span>
+                    <span class="text-zinc-700">•</span>
+                    <span class="text-xs text-zinc-400 flex items-center gap-1 font-mono">
+                      <MapPin class="w-3 h-3" /> {item.location}
+                    </span>
+                  </div>
+                </div>
+
+                <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+                  {item.summary}
+                </p>
+
+                <ul class="space-y-1.5 mb-4">
+                  {item.highlights.map((h) => (
+                    <li class="flex items-start gap-2 text-xs text-zinc-400 leading-relaxed">
+                      <span class="w-1.5 h-1.5 rounded-full bg-zinc-600 mt-1.5 shrink-0"></span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div class="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-800/60">
+                  {item.skills.map((skill) => (
+                    <span class="px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 text-[11px] font-mono border border-zinc-800">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Civic & Community Leadership Box -->
+      <div class="mt-14 p-6 sm:p-7 rounded-2xl bg-zinc-900/40 border border-zinc-800/80">
+        <div class="flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">
+          <HeartHandshake class="w-4 h-4" />
+          Civic Engagement &amp; Community Governance
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">
+          Biedrība "Zārdi" — Board Member (Valdes loceklis) <span class="text-xs font-mono font-normal text-zinc-400">(09.2020 — 05.2026)</span>
+        </h3>
+        <p class="text-sm text-zinc-300 leading-relaxed mb-3">
+          Contributed leadership to a non-profit property association. Orchestrated general assemblies (including remote digital voting during COVID-19), coordinated contractor procurement tenders, and handled municipal compliance.
+        </p>
+        <div class="mb-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-800/40 text-xs font-mono text-emerald-300">
+          <span>★ Executive Scope: Budget oversight, vendor management, legal and financial compliance</span>
+        </div>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          <strong class="text-zinc-200">Engineering Contribution:</strong> Independently built an end-to-end ERP web platform (zardi.lv) with SEPA bank import, automated accounting, electricity metering, and automated SMS/email alerts to streamline operations.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>

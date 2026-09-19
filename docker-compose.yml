@@ -1,0 +1,12 @@
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kovalovs-portfolio:latest
+    container_name: kovalovs-portfolio
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8210}:80"
+    environment:
+      - NODE_ENV=production

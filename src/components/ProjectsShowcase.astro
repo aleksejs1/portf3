@@ -1,0 +1,885 @@
+---
+import { featuredProjects, archiveProjects, allProjects } from '../data/projects';
+import { Terminal, Github, ExternalLink, Search, Sparkles, FolderGit2, Star, Shield, X, ChevronRight, ChevronLeft, Image as ImageIcon, BookOpen } from 'lucide-astro';
+
+const managementProjects = featuredProjects.filter(p => p.category === 'management');
+const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-web');
+---
+
+<section id="projects" class="py-20 md:py-28 border-b border-zinc-800/60 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header with CTO Framing -->
+    <div class="max-w-3xl mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700/80 text-xs font-mono text-zinc-300 mb-4">
+        <Terminal class="w-3.5 h-3.5 text-indigo-400" />
+        Technical Breadth &amp; Open Source
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Hands-on Engineering: Staying Sharp at the Architectural Core.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-zinc-400 leading-relaxed">
+        I lead engineering teams not because I stopped coding, but because I scale impact through people. These projects demonstrate my continuous hands-on exploration across modern stacks, developer tooling, and managerial workflows.
+      </p>
+      <p class="mt-2 text-xs font-mono text-indigo-400/90 flex items-center gap-1.5">
+        <Sparkles class="w-3.5 h-3.5" /> Click on any project card to inspect architectural breakdowns and screenshots in the lightbox.
+      </p>
+    </div>
+
+    <!-- Category 1: Management & Leadership Tooling (The Flagships) -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
+          <Shield class="w-4 h-4" /> Category 01: Engineering Tools for People Leadership
+        </span>
+        <div class="h-px flex-1 bg-zinc-800"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {managementProjects.map((project) => (
+          <div
+            class="project-card cursor-pointer rounded-2xl bg-zinc-900/70 border border-indigo-500/30 p-6 flex flex-col justify-between hover:border-indigo-400 transition-all duration-300 group hover:shadow-2xl hover:shadow-indigo-950/30 hover:-translate-y-1 relative"
+            data-project-id={project.id}
+          >
+            <div>
+              <!-- Highlight Star Badge -->
+              <div class="flex items-center justify-between gap-2 mb-4">
+                {project.starHighlight ? (
+                  <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-[10px] font-mono">
+                    <Star class="w-3 h-3 fill-indigo-400 text-indigo-400" />
+                    {project.starHighlight}
+                  </div>
+                ) : <div></div>}
+                <span class="text-xs font-mono text-zinc-400 font-semibold">{project.year}</span>
+              </div>
+
+              <div class="mb-2">
+                <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors flex items-center justify-between">
+                  {project.title}
+                  <ChevronRight class="w-4 h-4 text-zinc-500 group-hover:text-indigo-300 group-hover:translate-x-1 transition-all" />
+                </h3>
+              </div>
+
+              <p class="text-xs font-medium text-indigo-200/80 mb-3 font-mono">
+                {project.subtitle}
+              </p>
+
+              <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+                {project.description}
+              </p>
+            </div>
+
+            <div>
+              <!-- Tech Chips -->
+              <div class="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-800 mb-4">
+                {project.technologies.slice(0, 4).map((t) => (
+                  <span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 text-[10px] font-mono">
+                    {t}
+                  </span>
+                ))}
+                {project.technologies.length > 4 && (
+                  <span class="px-1.5 py-0.5 rounded bg-zinc-800/60 text-zinc-400 text-[10px] font-mono">
+                    +{project.technologies.length - 4}
+                  </span>
+                )}
+              </div>
+
+              <!-- Action Prompt -->
+              <div class="flex items-center justify-between pt-2 border-t border-zinc-800/60 text-[11px] font-mono text-zinc-400">
+                <span class="text-indigo-400 group-hover:text-indigo-300 flex items-center gap-1 font-semibold">
+                  Inspect Architecture &amp; Proof →
+                </span>
+                <div class="flex items-center gap-2">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/60 hover:border-emerald-500 transition-colors"
+                      title={`Visit ${project.liveUrl}`}
+                      onclick="event.stopPropagation()"
+                    >
+                      <ExternalLink class="w-2.5 h-2.5" /> Live
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-zinc-400 hover:text-white p-1 rounded hover:bg-zinc-800 transition-colors"
+                      title="View GitHub repository"
+                      onclick="event.stopPropagation()"
+                    >
+                      <Github class="w-3 h-3" />
+                    </a>
+                  )}
+                  {project.screenshots && project.screenshots.length > 0 && (
+                    <span class="flex items-center gap-1 text-zinc-400 text-[10px]">
+                      <ImageIcon class="w-3 h-3" /> {project.screenshots.length} shots
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Category 2: Modern Web Architecture & High-Utility Scale -->
+    <div class="mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+          <Sparkles class="w-4 h-4" /> Category 02: Modern Web Architecture &amp; Scale
+        </span>
+        <div class="h-px flex-1 bg-zinc-800"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {modernWebProjects.map((project) => (
+          <div
+            class="project-card cursor-pointer rounded-2xl bg-zinc-900/50 border border-zinc-800 p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all duration-300 group hover:shadow-xl hover:-translate-y-1"
+            data-project-id={project.id}
+          >
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                {project.starHighlight ? (
+                  <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/50 text-emerald-300 text-[10px] font-mono">
+                    {project.starHighlight}
+                  </div>
+                ) : <div></div>}
+                <span class="text-[11px] font-mono text-zinc-400">{project.year}</span>
+              </div>
+
+              <h3 class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center justify-between mb-1.5">
+                {project.title}
+                <ChevronRight class="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-300 transition-transform group-hover:translate-x-0.5" />
+              </h3>
+
+              <p class="text-xs text-zinc-400 font-mono mb-3">
+                {project.subtitle}
+              </p>
+
+              <p class="text-xs text-zinc-400 leading-relaxed mb-5">
+                {project.description}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1 pt-3 border-t border-zinc-800 mb-3">
+                {project.technologies.slice(0, 3).map((t) => (
+                  <span class="px-1.5 py-0.5 rounded bg-zinc-800/80 text-zinc-300 text-[10px] font-mono">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 pt-2 border-t border-zinc-800/50">
+                <span class="text-emerald-400 group-hover:text-emerald-300">View Details →</span>
+                <div class="flex items-center gap-2">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/60 hover:border-emerald-500 transition-colors"
+                      title={`Visit ${project.liveUrl}`}
+                      onclick="event.stopPropagation()"
+                    >
+                      <ExternalLink class="w-2.5 h-2.5" /> Live
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-zinc-400 hover:text-white p-1 rounded hover:bg-zinc-800 transition-colors"
+                      title="View GitHub repository"
+                      onclick="event.stopPropagation()"
+                    >
+                      <Github class="w-3 h-3" />
+                    </a>
+                  )}
+                  {project.screenshots && project.screenshots.length > 0 && (
+                    <span class="text-zinc-400 text-[10px] flex items-center gap-1">
+                      <ImageIcon class="w-3 h-3" /> {project.screenshots.length}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Category 3: Engineering Heritage & Archive (20+ Historical Projects) -->
+    <div class="rounded-2xl bg-zinc-900/40 border border-zinc-800/80 p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="flex items-center gap-2">
+            <FolderGit2 class="w-4 h-4 text-zinc-400" />
+            <h3 class="text-lg font-bold text-white">Engineering Heritage &amp; Hackathon Archive</h3>
+          </div>
+          <p class="text-xs text-zinc-400 mt-1">
+            20+ past projects, hackathons, mobile apps, and utilities built over 17 years. Click any project to see screenshots and tech specs.
+          </p>
+        </div>
+
+        <!-- Real-time Filter Search Input -->
+        <div class="relative w-full sm:w-72">
+          <Search class="w-4 h-4 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2" />
+          <input
+            id="archive-search"
+            type="text"
+            placeholder="Filter by keyword (e.g. symfony, mobile)..."
+            class="w-full pl-9 pr-4 py-2 rounded-xl bg-zinc-950 border border-zinc-700/80 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500 font-mono transition-colors"
+          />
+        </div>
+      </div>
+
+      <!-- Compact Archive Grid -->
+      <div id="archive-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {archiveProjects.map((p) => (
+          <div
+            class="archive-card project-card cursor-pointer p-4 rounded-xl bg-zinc-950/60 border border-zinc-800/70 hover:border-zinc-500 transition-all text-left hover:shadow-lg group"
+            data-project-id={p.id}
+            data-search={`${p.title} ${p.subtitle} ${p.description} ${p.technologies.join(' ')} ${p.year}`.toLowerCase()}
+          >
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <h4 class="text-sm font-semibold text-zinc-100 group-hover:text-indigo-300 transition-colors flex items-center gap-1">
+                {p.title}
+                <ChevronRight class="w-3 h-3 text-zinc-600 group-hover:text-indigo-300 transition-transform" />
+              </h4>
+              <span class="text-[10px] font-mono text-zinc-500 shrink-0">{p.year}</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-snug mb-2.5 line-clamp-2">{p.description}</p>
+            
+            <div class="flex flex-wrap gap-1 mb-3">
+              {p.technologies.slice(0, 3).map(tech => (
+                <span class="px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 text-[10px] font-mono">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 pt-2 border-t border-zinc-800/50">
+              <span class="text-indigo-400 group-hover:text-indigo-300 text-[10px]">Open Details &rarr;</span>
+              <div class="flex items-center gap-2">
+                {p.liveUrl && (
+                  <a
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/60 hover:border-emerald-500 transition-colors"
+                    title={`Visit ${p.liveUrl}`}
+                    onclick="event.stopPropagation()"
+                  >
+                    <ExternalLink class="w-2.5 h-2.5" /> {p.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                  </a>
+                )}
+                {p.githubUrl && (
+                  <a
+                    href={p.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-zinc-400 hover:text-white p-1 rounded hover:bg-zinc-800 transition-colors"
+                    title="View GitHub repository"
+                    onclick="event.stopPropagation()"
+                  >
+                    <Github class="w-3 h-3" />
+                  </a>
+                )}
+                {p.screenshots && p.screenshots.length > 0 && (
+                  <span class="text-[10px] text-zinc-500 flex items-center gap-1">
+                    <ImageIcon class="w-3 h-3" /> {p.screenshots.length}
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div id="archive-empty" class="hidden py-8 text-center text-xs text-zinc-500 font-mono">
+        No archive projects match your search query.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECT DETAIL MODAL DIALOG -->
+<div
+  id="project-modal-backdrop"
+  class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto transition-opacity duration-200"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
+  <div
+    id="project-modal-dialog"
+    class="relative w-full max-w-4xl rounded-2xl bg-zinc-900 border border-zinc-700/80 shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col transform transition-all duration-200 scale-95 opacity-0"
+  >
+    
+    <!-- Modal Header -->
+    <div class="p-5 sm:p-6 border-b border-zinc-800 flex items-start justify-between gap-4 bg-zinc-950/80 sticky top-0 z-20 backdrop-blur-md">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2 flex-wrap" id="modal-badges">
+          <span id="modal-category" class="px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-indigo-950 border border-indigo-700/60 text-indigo-300"></span>
+          <span id="modal-year" class="px-2.5 py-0.5 rounded text-[10px] font-mono bg-zinc-800 text-zinc-300"></span>
+          <span id="modal-status" class="px-2.5 py-0.5 rounded text-[10px] font-mono bg-emerald-950/80 border border-emerald-700/60 text-emerald-300"></span>
+          <a
+            id="modal-header-live-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden text-[11px] font-mono text-emerald-300 hover:text-white items-center gap-1 px-2.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-700/60 transition-colors"
+          >
+            <span id="modal-header-live-text"></span> ↗
+          </a>
+        </div>
+        <h3 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-white tracking-tight"></h3>
+        <p id="modal-subtitle" class="text-xs sm:text-sm font-mono text-zinc-400"></p>
+      </div>
+
+      <button
+        id="modal-close-btn"
+        type="button"
+        aria-label="Close dialog"
+        class="p-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors shrink-0"
+      >
+        <X class="w-5 h-5" />
+      </button>
+    </div>
+
+    <!-- Modal Scrollable Body -->
+    <div class="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1 text-sm text-zinc-300">
+      
+      <!-- 1. Executive Takeaway (The Strategic Value for CTO/EM) - Full Width Callout -->
+      <div id="modal-takeaway-box" class="p-4 sm:p-5 rounded-xl bg-indigo-950/40 border border-indigo-500/40 space-y-1.5 shadow-inner">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-indigo-300 flex items-center gap-1.5">
+          <Sparkles class="w-3.5 h-3.5 text-indigo-400" /> Executive &amp; Leadership Significance
+        </span>
+        <p id="modal-takeaway" class="text-xs sm:text-sm text-zinc-200 leading-relaxed italic"></p>
+      </div>
+
+      <!-- 2. Two-Column Compact Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Left Column: Context & Overview (7 cols on lg) -->
+        <div class="lg:col-span-7 space-y-5">
+          <!-- Problem Solved -->
+          <div id="modal-problem-box" class="space-y-2 p-4 rounded-xl bg-zinc-950/50 border border-zinc-800/80">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Problem Statement &amp; Context
+            </h4>
+            <p id="modal-problem" class="text-xs sm:text-sm text-zinc-300 leading-relaxed"></p>
+          </div>
+
+          <!-- Full Description / Overview -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">Overview &amp; Implementation Details</h4>
+            <p id="modal-description" class="text-xs sm:text-sm text-zinc-300 leading-relaxed"></p>
+          </div>
+        </div>
+
+        <!-- Right Column / Sidebar: Architecture & Tech (5 cols on lg) -->
+        <div class="lg:col-span-5 space-y-5">
+          <!-- Architectural Highlights -->
+          <div id="modal-architecture-box" class="space-y-2.5 p-4 rounded-xl bg-zinc-950/50 border border-zinc-800/80">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span> Architecture Highlights
+            </h4>
+            <ul id="modal-architecture-list" class="space-y-2 text-xs text-zinc-300">
+              <!-- Populated by JS -->
+            </ul>
+          </div>
+
+          <!-- Full Tech Stack Tags -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">Technologies &amp; Protocols</h4>
+            <div id="modal-technologies" class="flex flex-wrap gap-1.5"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3. Screenshots Gallery with Lightbox Launchers - Bottom of Body -->
+      <div id="modal-gallery-container" class="space-y-3 pt-6 border-t border-zinc-800">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+            <ImageIcon class="w-4 h-4 text-indigo-400" /> Visuals &amp; Architecture Screenshots
+          </span>
+          <span id="modal-gallery-counter" class="text-xs font-mono text-zinc-500"></span>
+        </div>
+        
+        <div id="modal-gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          <!-- Populated by client script with lightbox triggers -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Modal Sticky Footer Actions -->
+    <div class="p-4 sm:p-5 border-t border-zinc-800 bg-zinc-950/90 backdrop-blur-md sticky bottom-0 z-20 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <a
+          id="modal-github-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-mono text-xs transition-colors border border-zinc-700"
+        >
+          <Github class="w-4 h-4" /> View Source
+        </a>
+        <a
+          id="modal-docs-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-indigo-300 hover:text-white font-mono text-xs transition-colors border border-indigo-900/60"
+        >
+          <BookOpen class="w-4 h-4 text-indigo-400" /> Read Documentation
+        </a>
+        <a
+          id="modal-community-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-purple-950/70 hover:bg-purple-900/90 text-purple-200 hover:text-white font-mono text-xs transition-colors border border-purple-700/60 shadow-sm"
+        >
+          <ExternalLink class="w-4 h-4 text-purple-400" /> Obsidian Community Directory
+        </a>
+        <a
+          id="modal-live-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs transition-colors shadow-md shadow-indigo-950 font-medium"
+        >
+          <ExternalLink class="w-4 h-4" /> Launch Live App
+        </a>
+      </div>
+
+      <button
+        id="modal-close-bottom-btn"
+        type="button"
+        class="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-xs font-mono text-zinc-400 hover:text-white transition-colors ml-auto border border-zinc-800"
+      >
+        Close
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- FULLSCREEN LIGHTBOX OVERLAY (Z-INDEX 70) -->
+<div
+  id="lightbox-backdrop"
+  class="fixed inset-0 z-[70] bg-black/95 backdrop-blur-xl hidden items-center justify-center p-2 sm:p-6 select-none transition-opacity duration-200"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image Lightbox"
+>
+  <!-- Top Controls Bar -->
+  <div class="absolute top-4 inset-x-4 sm:inset-x-8 flex items-center justify-between z-20">
+    <div class="flex items-center gap-2 text-xs font-mono text-zinc-300 bg-zinc-900/90 px-3.5 py-1.5 rounded-full border border-zinc-700/80 backdrop-blur-md shadow-lg">
+      <span id="lightbox-counter" class="text-indigo-400 font-semibold">1 / 1</span>
+      <span class="text-zinc-600">•</span>
+      <span id="lightbox-title" class="text-zinc-200 truncate max-w-[180px] sm:max-w-md"></span>
+    </div>
+
+    <button
+      id="lightbox-close-btn"
+      type="button"
+      aria-label="Close lightbox"
+      class="p-2.5 rounded-full bg-zinc-900/90 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-all border border-zinc-700/80 backdrop-blur-md hover:scale-105"
+    >
+      <X class="w-5 h-5" />
+    </button>
+  </div>
+
+  <!-- Left Arrow Prev Button -->
+  <button
+    id="lightbox-prev-btn"
+    type="button"
+    aria-label="Previous image"
+    class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 rounded-full bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-700/80 transition-all hover:scale-110 active:scale-95 backdrop-blur-md shadow-xl"
+  >
+    <ChevronLeft class="w-6 h-6" />
+  </button>
+
+  <!-- Right Arrow Next Button -->
+  <button
+    id="lightbox-next-btn"
+    type="button"
+    aria-label="Next image"
+    class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 rounded-full bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-700/80 transition-all hover:scale-110 active:scale-95 backdrop-blur-md shadow-xl"
+  >
+    <ChevronRight class="w-6 h-6" />
+  </button>
+
+  <!-- Main Image Display -->
+  <div class="relative max-w-[94vw] max-h-[85vh] flex items-center justify-center">
+    <img
+      id="lightbox-img"
+      src=""
+      alt="Full size screenshot"
+      class="max-w-full max-h-[82vh] object-contain rounded-xl shadow-2xl border border-zinc-800 transition-transform duration-200"
+    />
+  </div>
+
+  <!-- Bottom Navigation Hint -->
+  <div class="absolute bottom-4 inset-x-0 text-center pointer-events-none">
+    <span class="text-[11px] font-mono text-zinc-400 bg-zinc-950/90 px-3.5 py-1.5 rounded-full border border-zinc-800/80 shadow-md">
+      Use ← / → arrow keys to navigate, Esc to return
+    </span>
+  </div>
+</div>
+
+<!-- Raw Project JSON Data for Client Script -->
+<script id="projects-data" type="application/json" set:html={JSON.stringify(allProjects)} />
+
+<script>
+  // 1. Search Filter Logic
+  const searchInput = document.getElementById('archive-search') as HTMLInputElement | null;
+  const cards = document.querySelectorAll<HTMLElement>('.archive-card');
+  const emptyState = document.getElementById('archive-empty');
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const searchTarget = card.dataset.search || '';
+      if (!query || searchTarget.includes(query)) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  });
+
+  // 2. Interactive Modal Logic
+  const dataScript = document.getElementById('projects-data');
+  const allProjectsData: any[] = dataScript?.textContent ? JSON.parse(dataScript.textContent) : [];
+  const projectMap = new Map<string, any>();
+  allProjectsData.forEach(p => projectMap.set(p.id, p));
+
+  const backdrop = document.getElementById('project-modal-backdrop');
+  const dialog = document.getElementById('project-modal-dialog');
+  const closeBtn = document.getElementById('modal-close-btn');
+  const closeBottomBtn = document.getElementById('modal-close-bottom-btn');
+
+  const titleEl = document.getElementById('modal-title');
+  const subtitleEl = document.getElementById('modal-subtitle');
+  const categoryEl = document.getElementById('modal-category');
+  const yearEl = document.getElementById('modal-year');
+  const statusEl = document.getElementById('modal-status');
+  const descriptionEl = document.getElementById('modal-description');
+  const takeawayBox = document.getElementById('modal-takeaway-box');
+  const takeawayEl = document.getElementById('modal-takeaway');
+  const problemBox = document.getElementById('modal-problem-box');
+  const problemEl = document.getElementById('modal-problem');
+  const architectureBox = document.getElementById('modal-architecture-box');
+  const architectureList = document.getElementById('modal-architecture-list');
+  const technologiesEl = document.getElementById('modal-technologies');
+  const galleryContainer = document.getElementById('modal-gallery-container');
+  const galleryEl = document.getElementById('modal-gallery');
+  const galleryCounter = document.getElementById('modal-gallery-counter');
+  const githubLink = document.getElementById('modal-github-link') as HTMLAnchorElement | null;
+  const docsLink = document.getElementById('modal-docs-link') as HTMLAnchorElement | null;
+  const communityLink = document.getElementById('modal-community-link') as HTMLAnchorElement | null;
+  const liveLink = document.getElementById('modal-live-link') as HTMLAnchorElement | null;
+  const headerLiveLink = document.getElementById('modal-header-live-link') as HTMLAnchorElement | null;
+  const headerLiveText = document.getElementById('modal-header-live-text');
+
+  // Active Project & Lightbox State
+  let currentProject: any = null;
+  let currentImageIndex = 0;
+
+  // Lightbox elements
+  const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const lightboxCounter = document.getElementById('lightbox-counter');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+  const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+  const lightboxNextBtn = document.getElementById('lightbox-next-btn');
+
+  function openLightbox(index: number) {
+    if (!currentProject || !currentProject.screenshots || currentProject.screenshots.length === 0) return;
+    currentImageIndex = index;
+    updateLightboxImage();
+
+    if (lightboxBackdrop) {
+      lightboxBackdrop.classList.remove('hidden');
+      lightboxBackdrop.classList.add('flex');
+    }
+  }
+
+  function closeLightbox() {
+    if (lightboxBackdrop) {
+      lightboxBackdrop.classList.remove('flex');
+      lightboxBackdrop.classList.add('hidden');
+    }
+  }
+
+  function updateLightboxImage() {
+    if (!currentProject || !currentProject.screenshots) return;
+    const total = currentProject.screenshots.length;
+    const url = currentProject.screenshots[currentImageIndex];
+
+    if (lightboxImg) lightboxImg.src = url;
+    if (lightboxCounter) lightboxCounter.textContent = `${currentImageIndex + 1} / ${total}`;
+    if (lightboxTitle) lightboxTitle.textContent = currentProject.title;
+
+    // Show/hide prev and next if only 1 image
+    if (lightboxPrevBtn) lightboxPrevBtn.style.display = total > 1 ? 'block' : 'none';
+    if (lightboxNextBtn) lightboxNextBtn.style.display = total > 1 ? 'block' : 'none';
+  }
+
+  function prevLightboxImage() {
+    if (!currentProject || !currentProject.screenshots) return;
+    const total = currentProject.screenshots.length;
+    currentImageIndex = (currentImageIndex - 1 + total) % total;
+    updateLightboxImage();
+  }
+
+  function nextLightboxImage() {
+    if (!currentProject || !currentProject.screenshots) return;
+    const total = currentProject.screenshots.length;
+    currentImageIndex = (currentImageIndex + 1) % total;
+    updateLightboxImage();
+  }
+
+  lightboxCloseBtn?.addEventListener('click', closeLightbox);
+  lightboxPrevBtn?.addEventListener('click', prevLightboxImage);
+  lightboxNextBtn?.addEventListener('click', nextLightboxImage);
+
+  lightboxBackdrop?.addEventListener('click', (e) => {
+    if (e.target === lightboxBackdrop) {
+      closeLightbox();
+    }
+  });
+
+  function openProjectModal(projectId: string) {
+    const project = projectMap.get(projectId);
+    if (!project) return;
+    currentProject = project;
+
+    if (titleEl) titleEl.textContent = project.title;
+    if (subtitleEl) subtitleEl.textContent = project.subtitle || '';
+    if (categoryEl) categoryEl.textContent = project.category === 'management' ? 'Leadership Tech' : project.category === 'modern-web' ? 'Modern Web' : 'Heritage Archive';
+    if (yearEl) yearEl.textContent = project.year || '';
+    if (statusEl) statusEl.textContent = project.status || 'Active';
+    if (descriptionEl) descriptionEl.textContent = project.description || '';
+
+    // Executive Takeaway
+    if (takeawayBox && takeawayEl) {
+      if (project.executiveTakeaway) {
+        takeawayBox.classList.remove('hidden');
+        takeawayEl.textContent = `"${project.executiveTakeaway}"`;
+      } else {
+        takeawayBox.classList.add('hidden');
+      }
+    }
+
+    // Problem Solved
+    if (problemBox && problemEl) {
+      if (project.problemSolved) {
+        problemBox.classList.remove('hidden');
+        problemEl.textContent = project.problemSolved;
+      } else {
+        problemBox.classList.add('hidden');
+      }
+    }
+
+    // Architectural Highlights
+    if (architectureBox && architectureList) {
+      if (project.architectureHighlights && project.architectureHighlights.length > 0) {
+        architectureBox.classList.remove('hidden');
+        architectureList.innerHTML = project.architectureHighlights.map((item: string) => `
+          <li class="flex items-start gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0"></span>
+            <span>${item}</span>
+          </li>
+        `).join('');
+      } else {
+        architectureBox.classList.add('hidden');
+      }
+    }
+
+    // Technologies
+    if (technologiesEl) {
+      technologiesEl.innerHTML = (project.technologies || []).map((t: string) => `
+        <span class="px-2.5 py-1 rounded bg-zinc-800 text-zinc-200 text-xs font-mono border border-zinc-700/60">${t}</span>
+      `).join('');
+    }
+
+    // Screenshots Gallery with Lightbox Launchers
+    if (galleryContainer && galleryEl) {
+      if (project.screenshots && project.screenshots.length > 0) {
+        galleryContainer.classList.remove('hidden');
+        if (galleryCounter) galleryCounter.textContent = `${project.screenshots.length} visual${project.screenshots.length > 1 ? 's' : ''}`;
+        
+        galleryEl.innerHTML = project.screenshots.map((url: string, index: number) => `
+          <div
+            class="gallery-thumbnail-btn cursor-pointer block rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800 hover:border-indigo-400 transition-all group/img relative"
+            data-index="${index}"
+            role="button"
+            tabindex="0"
+            aria-label="View full size image ${index + 1}"
+          >
+            <img src="${url}" alt="${project.title} screenshot ${index + 1}" loading="lazy" class="w-full h-28 sm:h-32 object-cover object-top group-hover/img:scale-105 transition-transform duration-300" />
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-end justify-between p-2.5 text-[11px] font-mono text-zinc-200">
+              <span class="flex items-center gap-1.5 text-indigo-300">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                Zoom in
+              </span>
+              <span class="text-zinc-400">${index + 1}/${project.screenshots.length}</span>
+            </div>
+          </div>
+        `).join('');
+
+        // Attach click listener to each gallery thumbnail
+        galleryEl.querySelectorAll<HTMLElement>('.gallery-thumbnail-btn').forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const idx = parseInt(btn.dataset.index || '0', 10);
+            openLightbox(idx);
+          });
+        });
+
+      } else {
+        galleryContainer.classList.add('hidden');
+      }
+    }
+
+    // Action Links
+    if (githubLink) {
+      if (project.githubUrl) {
+        githubLink.href = project.githubUrl;
+        githubLink.classList.remove('hidden');
+      } else {
+        githubLink.classList.add('hidden');
+      }
+    }
+
+    if (docsLink) {
+      if (project.docsUrl) {
+        docsLink.href = project.docsUrl;
+        docsLink.classList.remove('hidden');
+      } else {
+        docsLink.classList.add('hidden');
+      }
+    }
+
+    if (communityLink) {
+      if (project.communityUrl) {
+        communityLink.href = project.communityUrl;
+        communityLink.classList.remove('hidden');
+      } else {
+        communityLink.classList.add('hidden');
+      }
+    }
+
+    if (liveLink) {
+      if (project.liveUrl) {
+        liveLink.href = project.liveUrl;
+        liveLink.classList.remove('hidden');
+      } else {
+        liveLink.classList.add('hidden');
+      }
+    }
+
+    if (headerLiveLink && headerLiveText) {
+      if (project.liveUrl) {
+        headerLiveLink.href = project.liveUrl;
+        headerLiveText.textContent = project.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '');
+        headerLiveLink.classList.remove('hidden');
+        headerLiveLink.classList.add('inline-flex');
+      } else {
+        headerLiveLink.classList.remove('inline-flex');
+        headerLiveLink.classList.add('hidden');
+      }
+    }
+
+    // Show backdrop and animate dialog
+    if (backdrop && dialog) {
+      document.body.style.overflow = 'hidden';
+      backdrop.classList.remove('hidden');
+      backdrop.classList.add('flex');
+      setTimeout(() => {
+        dialog.classList.remove('scale-95', 'opacity-0');
+        dialog.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+  }
+
+  function closeProjectModal() {
+    if (backdrop && dialog) {
+      dialog.classList.remove('scale-100', 'opacity-100');
+      dialog.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        backdrop.classList.remove('flex');
+        backdrop.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 200);
+    }
+  }
+
+  // Attach click listener to all project cards
+  document.querySelectorAll<HTMLElement>('.project-card').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'A' || target.closest('a')) {
+        return;
+      }
+      const projectId = card.dataset.projectId;
+      if (projectId) {
+        openProjectModal(projectId);
+      }
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeProjectModal);
+  closeBottomBtn?.addEventListener('click', closeProjectModal);
+
+  backdrop?.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      closeProjectModal();
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    // 1. If Lightbox is open:
+    if (lightboxBackdrop && !lightboxBackdrop.classList.contains('hidden')) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        prevLightboxImage();
+        return;
+      }
+      if (e.key === 'ArrowRight') {
+        nextLightboxImage();
+        return;
+      }
+    }
+
+    // 2. If Project Modal is open:
+    if (e.key === 'Escape' && backdrop && !backdrop.classList.contains('hidden')) {
+      closeProjectModal();
+    }
+  });
+</script>

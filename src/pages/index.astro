@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Philosophy from '../components/Philosophy.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import ProjectsShowcase from '../components/ProjectsShowcase.astro';
+import Articles from '../components/Articles.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Footer from '../components/Footer.astro';
+import { yearsInTech } from '../data/experience';
+---
+
+<Layout
+  title="Aleksejs Kovaļovs | Engineering Leader & CTO Candidate"
+  description={`Engineering Leader & Manager with ${yearsInTech} years in tech. 10+ years backend & core banking roots, transitioned to people leadership, team scaling, and high-trust engineering cultures.`}
+>
+  <Header />
+  <main class="flex-1">
+    <Hero />
+    <Philosophy />
+    <ExperienceTimeline />
+    <ProjectsShowcase />
+    <Articles />
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>

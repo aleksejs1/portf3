@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import { yearsInTech } from '../data/experience';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Aleksejs Kovaļovs | Engineering Leader & CTO Candidate",
+  description = `Engineering Manager and CTO candidate with ${yearsInTech} years in tech. Proven expertise in scaling engineering teams, people leadership, high-load distributed backends, and core banking systems.`
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://kovalovs.lv');
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Aleksejs Kovaļovs" />
+    <meta name="keywords" content="Aleksejs Kovalovs, Engineering Leader, CTO, VP of Engineering, Engineering Manager, Mapon, inbox.lv, Core Banking, People Leadership, Distributed Systems, High Load, Riga, Latvia" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/profile.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/profile.jpg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-indigo-500/25 selection:text-indigo-200">
+    <!-- Subtle Background Ambient Grid & Glow -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-indigo-900/15 via-indigo-950/5 to-transparent blur-3xl opacity-70"></div>
+      <div class="absolute top-[800px] right-0 w-[600px] h-[500px] bg-gradient-to-b from-emerald-950/10 to-transparent blur-3xl opacity-50"></div>
+      <div class="absolute top-[1800px] left-0 w-[700px] h-[600px] bg-gradient-to-b from-indigo-950/10 to-transparent blur-3xl opacity-40"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <slot />
+    </div>
+  </body>
+</html>

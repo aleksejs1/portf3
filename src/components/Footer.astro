@@ -1,0 +1,31 @@
+---
+import { ArrowUp } from 'lucide-astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-12 border-t border-zinc-900 bg-zinc-950 text-zinc-500 text-xs font-mono">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+    
+    <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+      <span class="text-zinc-300 font-semibold font-sans">Aleksejs Kovaļovs</span>
+      <span class="hidden sm:inline text-zinc-700">•</span>
+      <span>Engineering Leader &amp; CTO Candidate</span>
+      <span class="hidden sm:inline text-zinc-700">•</span>
+      <span>Riga, Latvia</span>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <span class="text-zinc-600 hidden md:inline">
+        &copy; {currentYear} Aleksejs Kovaļovs. All rights reserved.
+      </span>
+      <a
+        href="#"
+        class="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
+      >
+        Back to top <ArrowUp class="w-3.5 h-3.5" />
+      </a>
+    </div>
+
+  </div>
+</footer>

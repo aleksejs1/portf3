@@ -1,0 +1,90 @@
+---
+import { BookOpen, ArrowUpRight, FileText } from 'lucide-astro';
+
+const articles = [
+  {
+    title: 'Personal Cybersecurity & Password Architecture',
+    publication: 'Habr.com',
+    description: 'A viral deep-dive into multi-factor authentication, cryptographic backups, and fault-tolerant password management (100K+ readers, 650+ bookmarks).',
+    url: 'https://habr.com/ru/articles/787158/',
+    topics: ['Cybersecurity', 'Cryptography', '2FA']
+  },
+  {
+    title: 'Building Minimalist & Resilient Systems',
+    publication: 'minimalist.lv / Blog',
+    description: 'Principles of no-bloat web architecture, zero-JS fundamentals, local-first computing, and engineering discipline in an era of framework bloat.',
+    url: 'https://minimalist.lv',
+    topics: ['Zero-JS', 'Performance', 'Web Architecture']
+  }
+];
+---
+
+<section id="writing" class="py-20 md:py-28 border-b border-zinc-800/60 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700/80 text-xs font-mono text-zinc-300 mb-4">
+        <BookOpen class="w-3.5 h-3.5 text-indigo-400" />
+        Thought Leadership &amp; Writing
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Engineering Philosophy in the Open.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-zinc-400 leading-relaxed">
+        Writing forces architectural clarity. I share actionable reflections on systems design, engineering trade-offs, and pragmatic technology adoption.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {articles.map((item) => (
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 group flex flex-col justify-between hover:shadow-xl hover:shadow-indigo-950/20"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-mono text-indigo-400 font-semibold">{item.publication}</span>
+              <ArrowUpRight class="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-indigo-200 transition-colors mb-2">
+              {item.title}
+            </h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+              {item.description}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-800/80">
+            {item.topics.map(t => (
+              <span class="px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 text-[10px] font-mono">
+                #{t}
+              </span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Habr Profile Banner -->
+    <div class="mt-8 p-6 rounded-xl bg-zinc-900/30 border border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <FileText class="w-5 h-5 text-indigo-400 shrink-0" />
+        <span class="text-xs text-zinc-300 font-mono">
+          Read 11+ articles on infosec, local-first workflows, and engineering ergonomics on Habr (180K+ views).
+        </span>
+      </div>
+      <a
+        href="https://habr.com/ru/users/aleksejs1/publications/articles/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-200 border border-zinc-700 transition-colors shrink-0"
+      >
+        Open Habr Articles <ArrowUpRight class="w-3.5 h-3.5" />
+      </a>
+    </div>
+
+  </div>
+</section>

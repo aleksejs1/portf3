@@ -1,0 +1,26 @@
+{
+  "name": "kovalovs-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^5.4.1",
+    "lucide-astro": "^0.556.0",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@tailwindcss/typography": "^0.5.16",
+    "typescript": "^5.7.3"
+  }
+}
