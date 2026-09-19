@@ -154,7 +154,7 @@ export const featuredProjects: ProjectItem[] = [
     subtitle: 'End-to-end association management & billing automation system',
     description: 'Bespoke ERP and financial automation system built to manage non-profit property operations: automated SEPA bank statement reconciliation, mass SMS/email broadcasts, electricity sub-metering, and PDF invoice generation.',
     category: 'modern-web',
-    year: '2020–2024',
+    year: '2020–2026',
     status: 'Completed',
     technologies: ['Symfony', 'PHP', 'SEPA Banking XML', 'SMS Gateway', 'PDF Generation', 'MySQL'],
     screenshots: [
