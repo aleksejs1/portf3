@@ -15,7 +15,7 @@
 This portfolio is deliberately designed for the transition into a **Chief Technology Officer (CTO)** or **VP of Engineering** role:
 - **The 5-Second Pitch:** Immediately communicates a mature engineering leader with 17+ years in tech, proven people management expertise, and domain depth across Core Banking and IoT telematics.
 - **The Leadership Shift:** Highlights the deliberate January 2022 transition from 10+ years of high-load backend engineering into people and technical leadership.
-- **Hands-on Proof:** Showcases custom tools created for leadership practices ([`encrypted1on1`](https://github.com/aleksejs1/encrypted1on1), [`ari`](https://github.com/aleksejs1/ari)), modern web platforms ([`minimalist.lv`](https://minimalist.lv), `4m.lv`), and an interactive searchable archive of 20+ historical projects.
+- **Hands-on Proof:** Showcases custom tools created for leadership practices ([`encrypted1on1`](https://github.com/aleksejs1/encrypted1on1), [`ari`](https://github.com/aleksejs1/ari)), modern web platforms ([`minimalist.lv`](https://minimalist.lv), [`4m.lv`](https://4m.lv)), and an interactive searchable archive of 20+ historical projects.
 
 ---
 
@@ -159,4 +159,4 @@ Since this project outputs clean, static HTML/CSS/JS (`output: "static"`), it ca
 
 ## 📄 License
 
-Personal portfolio content &copy; 2026 Aleksejs Kovaļovs. Source code available under the MIT License.
+Personal portfolio content &copy; 2026 Aleksejs Kovaļovs. Source code available under the [MIT License](LICENSE).
