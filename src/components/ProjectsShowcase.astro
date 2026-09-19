@@ -314,18 +314,27 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
 <!-- PROJECT DETAIL MODAL DIALOG -->
 <div
   id="project-modal-backdrop"
-  class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto transition-opacity duration-200"
+  class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-end sm:items-center justify-center p-0 sm:p-6 overflow-y-auto transition-opacity duration-200"
   role="dialog"
   aria-modal="true"
   aria-labelledby="modal-title"
 >
   <div
     id="project-modal-dialog"
-    class="relative w-full max-w-4xl rounded-2xl bg-zinc-900 border border-zinc-700/80 shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col transform transition-all duration-200 scale-95 opacity-0"
+    class="relative w-full max-w-4xl rounded-t-3xl sm:rounded-2xl bg-zinc-900 border-t sm:border border-zinc-700/80 shadow-2xl overflow-hidden my-0 sm:my-8 max-h-[90vh] flex flex-col transform transition-all duration-200 translate-y-6 sm:translate-y-0 scale-95 opacity-0"
   >
+    <!-- Mobile Bottom Sheet Pull Bar -->
+    <button
+      id="modal-drag-handle"
+      type="button"
+      aria-label="Dismiss sheet"
+      class="sm:hidden w-full pt-3 pb-1.5 flex justify-center bg-zinc-950/90 border-b border-zinc-800/40 shrink-0 cursor-pointer active:opacity-70"
+    >
+      <span class="w-12 h-1 rounded-full bg-zinc-600 block"></span>
+    </button>
     
     <!-- Modal Header -->
-    <div class="p-5 sm:p-6 border-b border-zinc-800 flex items-start justify-between gap-4 bg-zinc-950/80 sticky top-0 z-20 backdrop-blur-md">
+    <div class="p-4 sm:p-6 border-b border-zinc-800 flex items-start justify-between gap-4 bg-zinc-950/80 sticky top-0 z-20 backdrop-blur-md">
       <div class="space-y-1">
         <div class="flex items-center gap-2 flex-wrap" id="modal-badges">
           <span id="modal-category" class="px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-indigo-950 border border-indigo-700/60 text-indigo-300"></span>
@@ -605,6 +614,10 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
   // Active Project & Lightbox State
   let currentProject: any = null;
   let currentImageIndex = 0;
+  let pushedModalHistory = false;
+  let pushedLightboxHistory = false;
+
+  const dragHandle = document.getElementById('modal-drag-handle');
 
   // Lightbox elements
   const lightboxBackdrop = document.getElementById('lightbox-backdrop');
@@ -615,7 +628,7 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
   const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
   const lightboxNextBtn = document.getElementById('lightbox-next-btn');
 
-  function openLightbox(index: number) {
+  function openLightbox(index: number, updateHistory = true) {
     if (!currentProject || !currentProject.screenshots || currentProject.screenshots.length === 0) return;
     currentImageIndex = index;
     updateLightboxImage();
@@ -624,12 +637,26 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
       lightboxBackdrop.classList.remove('hidden');
       lightboxBackdrop.classList.add('flex');
     }
+
+    if (updateHistory) {
+      history.pushState({ modal: 'lightbox', index }, '', window.location.hash);
+      pushedLightboxHistory = true;
+    }
   }
 
-  function closeLightbox() {
+  function closeLightboxDOM() {
     if (lightboxBackdrop) {
       lightboxBackdrop.classList.remove('flex');
       lightboxBackdrop.classList.add('hidden');
+    }
+  }
+
+  function requestCloseLightbox() {
+    if (pushedLightboxHistory) {
+      pushedLightboxHistory = false;
+      history.back();
+    } else {
+      closeLightboxDOM();
     }
   }
 
@@ -661,17 +688,17 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
     updateLightboxImage();
   }
 
-  lightboxCloseBtn?.addEventListener('click', closeLightbox);
+  lightboxCloseBtn?.addEventListener('click', requestCloseLightbox);
   lightboxPrevBtn?.addEventListener('click', prevLightboxImage);
   lightboxNextBtn?.addEventListener('click', nextLightboxImage);
 
   lightboxBackdrop?.addEventListener('click', (e) => {
     if (e.target === lightboxBackdrop) {
-      closeLightbox();
+      requestCloseLightbox();
     }
   });
 
-  function openProjectModal(projectId: string) {
+  function openProjectModal(projectId: string, updateHistory = true) {
     const project = projectMap.get(projectId);
     if (!project) return;
     currentProject = project;
@@ -755,7 +782,7 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
           btn.addEventListener('click', (e) => {
             e.stopPropagation();
             const idx = parseInt(btn.dataset.index || '0', 10);
-            openLightbox(idx);
+            openLightbox(idx, true);
           });
         });
 
@@ -818,22 +845,40 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
       document.body.style.overflow = 'hidden';
       backdrop.classList.remove('hidden');
       backdrop.classList.add('flex');
-      setTimeout(() => {
-        dialog.classList.remove('scale-95', 'opacity-0');
-        dialog.classList.add('scale-100', 'opacity-100');
-      }, 10);
+      requestAnimationFrame(() => {
+        dialog.classList.remove('translate-y-6', 'scale-95', 'opacity-0');
+        dialog.classList.add('translate-y-0', 'scale-100', 'opacity-100');
+      });
+    }
+
+    if (updateHistory) {
+      history.pushState({ modal: 'project', projectId }, '', `#project-${projectId}`);
+      pushedModalHistory = true;
     }
   }
 
-  function closeProjectModal() {
+  function closeProjectModalDOM() {
     if (backdrop && dialog) {
-      dialog.classList.remove('scale-100', 'opacity-100');
-      dialog.classList.add('scale-95', 'opacity-0');
+      dialog.classList.remove('translate-y-0', 'scale-100', 'opacity-100');
+      dialog.classList.add('translate-y-6', 'scale-95', 'opacity-0');
       setTimeout(() => {
         backdrop.classList.remove('flex');
         backdrop.classList.add('hidden');
         document.body.style.overflow = '';
+        currentProject = null;
       }, 200);
+    }
+  }
+
+  function requestCloseModal() {
+    if (pushedModalHistory) {
+      pushedModalHistory = false;
+      history.back();
+    } else {
+      if (window.location.hash.startsWith('#project-')) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      closeProjectModalDOM();
     }
   }
 
@@ -846,25 +891,60 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
       }
       const projectId = card.dataset.projectId;
       if (projectId) {
-        openProjectModal(projectId);
+        openProjectModal(projectId, true);
       }
     });
   });
 
-  closeBtn?.addEventListener('click', closeProjectModal);
-  closeBottomBtn?.addEventListener('click', closeProjectModal);
+  dragHandle?.addEventListener('click', requestCloseModal);
+  closeBtn?.addEventListener('click', requestCloseModal);
+  closeBottomBtn?.addEventListener('click', requestCloseModal);
 
   backdrop?.addEventListener('click', (e) => {
     if (e.target === backdrop) {
-      closeProjectModal();
+      requestCloseModal();
     }
   });
+
+  // Hardware / Swipe Back and Forward event listener
+  window.addEventListener('popstate', () => {
+    // 1. If Lightbox is open, close lightbox first
+    if (lightboxBackdrop && !lightboxBackdrop.classList.contains('hidden')) {
+      closeLightboxDOM();
+      pushedLightboxHistory = false;
+      return;
+    }
+
+    // 2. If Project Modal is open, close modal
+    if (backdrop && !backdrop.classList.contains('hidden')) {
+      closeProjectModalDOM();
+      pushedModalHistory = false;
+      return;
+    }
+
+    // 3. If user navigated Forward to a #project-... hash
+    const hash = window.location.hash;
+    if (hash.startsWith('#project-')) {
+      const pid = hash.replace('#project-', '');
+      if (projectMap.has(pid)) {
+        openProjectModal(pid, false);
+      }
+    }
+  });
+
+  // Deep linking: auto-open modal if URL has #project-<id> on page load
+  if (window.location.hash.startsWith('#project-')) {
+    const initialPid = window.location.hash.replace('#project-', '');
+    if (projectMap.has(initialPid)) {
+      openProjectModal(initialPid, false);
+    }
+  }
 
   window.addEventListener('keydown', (e) => {
     // 1. If Lightbox is open:
     if (lightboxBackdrop && !lightboxBackdrop.classList.contains('hidden')) {
       if (e.key === 'Escape') {
-        closeLightbox();
+        requestCloseLightbox();
         return;
       }
       if (e.key === 'ArrowLeft') {
@@ -879,7 +959,7 @@ const modernWebProjects = featuredProjects.filter(p => p.category === 'modern-we
 
     // 2. If Project Modal is open:
     if (e.key === 'Escape' && backdrop && !backdrop.classList.contains('hidden')) {
-      closeProjectModal();
+      requestCloseModal();
     }
   });
 </script>
