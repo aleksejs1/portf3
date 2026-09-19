@@ -32,10 +32,10 @@ export const featuredProjects: ProjectItem[] = [
     liveUrl: 'https://private1on1.eu/',
     starHighlight: 'People Leadership Tech',
     screenshots: [
-      'https://raw.githubusercontent.com/aleksejs1/encrypted1on1/main/docs/screenshots/anketa.png',
-      'https://raw.githubusercontent.com/aleksejs1/encrypted1on1/main/docs/screenshots/anketa_list.png',
-      'https://raw.githubusercontent.com/aleksejs1/encrypted1on1/main/docs/screenshots/report.png',
-      'https://raw.githubusercontent.com/aleksejs1/encrypted1on1/main/docs/screenshots/login.png'
+      '/screenshots/raw_anketa.png',
+      '/screenshots/raw_anketa_list.png',
+      '/screenshots/raw_report.png',
+      '/screenshots/raw_login.png'
     ],
     executiveTakeaway: 'Proves how deep engineering literacy directly serves people management. Instead of relying on insecure Google Docs or corporate surveillance tools for sensitive 1:1 discussions, I designed a verifiable, zero-trust system giving employees 100% confidence in privacy.',
     problemSolved: 'Sensitive 1-on-1 feedback and personal career struggles often go unrecorded because employees fear cloud leaks or HR oversight. Encrypted 1-on-1 guarantees cryptographic privacy while preserving structured action items and growth tracking.',
@@ -60,10 +60,10 @@ export const featuredProjects: ProjectItem[] = [
     docsUrl: 'https://docs.personal-ari.com/docs/getting-started/installation',
     starHighlight: 'Stakeholder & Team CRM',
     screenshots: [
-      'https://personal-ari.com/assets/ari_dashboard_4.png',
-      'https://personal-ari.com/assets/ari_contact_4.png',
-      'https://personal-ari.com/assets/ari_filtering_search_4.png',
-      'https://personal-ari.com/assets/ari_history_4.png'
+      '/screenshots/personal-ari_ari_dashboard_4.png',
+      '/screenshots/personal-ari_ari_contact_4.png',
+      '/screenshots/personal-ari_ari_filtering_search_4.png',
+      '/screenshots/personal-ari_ari_history_4.png'
     ],
     executiveTakeaway: 'Demonstrates architectural maturity and clean enterprise domain modeling. Built with an OpenAPI-first contract, immutable audit logging, and a plugin-oriented architecture that allows modular extension without core codebase bloat.',
     problemSolved: 'Commercial CRMs are bloated and harvest personal data. Ari provides a local-first, self-hosted, tamper-proof audit log of personal contacts and career interactions with first-class Telegram notification triggers.',
@@ -87,8 +87,8 @@ export const featuredProjects: ProjectItem[] = [
     githubUrl: 'https://github.com/aleksejs1/obsidian-contact-sync-plugin',
     communityUrl: 'https://community.obsidian.md/plugins/google-contacts',
     screenshots: [
-      'https://raw.githubusercontent.com/aleksejs1/obsidian-contact-sync-plugin/master/resources/obsidian_contact_sync_plugin_note.png',
-      'https://raw.githubusercontent.com/aleksejs1/obsidian-contact-sync-plugin/master/resources/obsidian_contact_sync_plugin_settings.png'
+      '/screenshots/raw_obsidian_contact_sync_plugin_note.png',
+      '/screenshots/raw_obsidian_contact_sync_plugin_settings.png'
     ],
     executiveTakeaway: 'Reflects personal commitment to systematic knowledge management and developer ergonomics. Implements strict non-destructive two-way synchronization algorithms, respecting user-edited frontmatter.',
     problemSolved: 'Engineering leaders manage relationships across hundreds of colleagues, clients, and partners. This plugin turns static address books into living, linked Markdown notes inside Obsidian without sacrificing data privacy.',
@@ -134,10 +134,10 @@ export const featuredProjects: ProjectItem[] = [
     liveUrl: 'https://4m.lv',
     starHighlight: '#1 in Latvian Google',
     screenshots: [
-      'https://kovalovs.lv/storage/2025_01_11/1736566113_5166/original.png',
-      'https://kovalovs.lv/storage/2025_01_11/1736566133_9121/original.png',
-      'https://kovalovs.lv/storage/2025_01_11/1736566140_7557/original.png',
-      'https://kovalovs.lv/storage/2025_01_11/1736566153_3892/original.png'
+      '/screenshots/2025_01_11_1736566113_5166.png',
+      '/screenshots/2025_01_11_1736566133_9121.png',
+      '/screenshots/2025_01_11_1736566140_7557.png',
+      '/screenshots/2025_01_11_1736566153_3892.png'
     ],
     executiveTakeaway: 'Shows practical understanding of SEO, domain product-market fit, and solving unglamorous but mission-critical everyday business problems that organically retain #1 search rankings for years.',
     problemSolved: 'Invoices in Latvia legally require number amounts to be written out verbally with complex grammatical declensions and currency units. 4m.lv automates this accurately for thousands of daily professionals.',
@@ -158,8 +158,8 @@ export const featuredProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['Symfony', 'PHP', 'SEPA Banking XML', 'SMS Gateway', 'PDF Generation', 'MySQL'],
     screenshots: [
-      'https://kovalovs.lv/storage/2020_12_10/1607617464_2061/original.png',
-      'https://kovalovs.lv/storage/2020_12_10/1607617471_0602/original.png'
+      '/screenshots/2020_12_10_1607617464_2061.png',
+      '/screenshots/2020_12_10_1607617471_0602.png'
     ],
     executiveTakeaway: 'A demonstration of pragmatic engineering applied to real-world community leadership. Rather than buying an ill-fitting commercial solution, I engineered a tailored system that eliminated manual administrative toil and digitized 100% of accounting.',
     problemSolved: 'Manual spreadsheet accounting for property cooperatives creates errors, delayed payments, and high administrative cost. This ERP handles end-to-end billing, bank reconciliation, and automated tenant alerts.',
@@ -182,10 +182,10 @@ export const featuredProjects: ProjectItem[] = [
     liveUrl: 'https://yolo.lv',
     starHighlight: '1M+ Pages • 1 Core & 1 GB RAM',
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538316570_9752/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538316576_8484/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538316582_7972/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538316592_3216/original.png'
+      '/screenshots/2018_09_30_1538316570_9752.png',
+      '/screenshots/2018_09_30_1538316576_8484.png',
+      '/screenshots/2018_09_30_1538316582_7972.png',
+      '/screenshots/2018_09_30_1538316592_3216.png'
     ],
     executiveTakeaway: 'A masterclass in cost optimization and high-efficiency systems tuning: proves how intelligent index design, lean schema modeling, and aggressive caching can serve a 1M+ page multilingual dataset with sub-second response times on minimal hardware (1 vCPU, 1 GB RAM) without ballooning cloud infrastructure bills.',
     problemSolved: 'Aggregating and serving massive relational datasets (76k movies, 385k actors) across 3 localized languages without enterprise cloud budgets, withstanding relentless search crawler bot activity at multi-requests-per-second without memory exhaustion.',
@@ -211,10 +211,10 @@ export const archiveProjects: ProjectItem[] = [
     technologies: ['Symfony 5.2', 'Webpack Encore', 'PHP'],
     githubUrl: 'https://github.com/aleksejs1/writer2l',
     screenshots: [
-      'https://kovalovs.lv/storage/2020_12_10/1607615677_75/original.png',
-      'https://kovalovs.lv/storage/2020_12_10/1607615685_4128/original.png',
-      'https://kovalovs.lv/storage/2020_12_10/1607615691_7363/original.png',
-      'https://kovalovs.lv/storage/2020_12_10/1607615698_0957/original.png'
+      '/screenshots/2020_12_10_1607615677_75.png',
+      '/screenshots/2020_12_10_1607615685_4128.png',
+      '/screenshots/2020_12_10_1607615691_7363.png',
+      '/screenshots/2020_12_10_1607615698_0957.png'
     ]
   },
   {
@@ -227,10 +227,10 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Hackathon / Prototype',
     technologies: ['Symfony', 'React', 'SPA / PWA', 'PSD2 Open Banking'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538315304_4288/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538315309_342/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538315314_6546/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538315319_9397/original.png'
+      '/screenshots/2018_09_30_1538315304_4288.png',
+      '/screenshots/2018_09_30_1538315309_342.png',
+      '/screenshots/2018_09_30_1538315314_6546.png',
+      '/screenshots/2018_09_30_1538315319_9397.png'
     ]
   },
   {
@@ -243,9 +243,9 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Hackathon / Prototype',
     technologies: ['Symfony', 'JWT', 'REST API', 'Bootstrap', 'JavaScript'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538313535_3599/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538313540_5892/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538313544_7946/original.png'
+      '/screenshots/2018_09_30_1538313535_3599.png',
+      '/screenshots/2018_09_30_1538313540_5892.png',
+      '/screenshots/2018_09_30_1538313544_7946.png'
     ]
   },
   {
@@ -258,9 +258,9 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Hackathon / Prototype',
     technologies: ['JavaScript', 'Bootstrap', 'Team Git', 'JsRender'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538312781_9421/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538312787_0019/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538312792_2893/original.png'
+      '/screenshots/2018_09_30_1538312781_9421.png',
+      '/screenshots/2018_09_30_1538312787_0019.png',
+      '/screenshots/2018_09_30_1538312792_2893.png'
     ]
   },
   {
@@ -273,9 +273,9 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['PHP', 'MySQL', 'REST', 'AJAX', 'JsRender'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538312582_9578/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538312588_9679/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538312601_2685/original.png'
+      '/screenshots/2018_09_30_1538312582_9578.png',
+      '/screenshots/2018_09_30_1538312588_9679.png',
+      '/screenshots/2018_09_30_1538312601_2685.png'
     ]
   },
   {
@@ -288,8 +288,8 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['PHP', 'MySQL', 'REST', 'JavaScript'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538312436_0557/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538312441_9585/original.png'
+      '/screenshots/2018_09_30_1538312436_0557.png',
+      '/screenshots/2018_09_30_1538312441_9585.png'
     ]
   },
   {
@@ -302,9 +302,9 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['PHP', 'MySQL', 'Maps API', 'Mobile Web'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538312231_4402/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538312239_0447/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538312245_1312/original.png'
+      '/screenshots/2018_09_30_1538312231_4402.png',
+      '/screenshots/2018_09_30_1538312239_0447.png',
+      '/screenshots/2018_09_30_1538312245_1312.png'
     ]
   },
   {
@@ -317,8 +317,8 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['Java', 'PHP', 'REST API', 'MySQL'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538312037_7835/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538312046_0134/original.png'
+      '/screenshots/2018_09_30_1538312037_7835.png',
+      '/screenshots/2018_09_30_1538312046_0134.png'
     ]
   },
   {
@@ -331,7 +331,7 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['PhoneGap', 'JavaScript', 'JSONP', 'REST'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538311536_6479/original.png'
+      '/screenshots/2018_09_30_1538311536_6479.png'
     ]
   },
   {
@@ -345,8 +345,8 @@ export const archiveProjects: ProjectItem[] = [
     technologies: ['PhoneGap', 'JavaScript', 'Offline Caching'],
     githubUrl: 'https://github.com/aleksejs1/weekend',
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538316898_5384/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538316903_8578/original.png'
+      '/screenshots/2018_09_30_1538316898_5384.png',
+      '/screenshots/2018_09_30_1538316903_8578.png'
     ]
   },
   {
@@ -360,8 +360,8 @@ export const archiveProjects: ProjectItem[] = [
     technologies: ['PHP', 'PDF Generation', 'i18n'],
     liveUrl: 'https://p.4m.lv/',
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538316007_1596/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538316012_3769/original.png'
+      '/screenshots/2018_09_30_1538316007_1596.png',
+      '/screenshots/2018_09_30_1538316012_3769.png'
     ]
   },
   {
@@ -374,8 +374,8 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Hackathon / Prototype',
     technologies: ['Symfony 3', 'PDF Engine', 'Digital Signatures'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538315707_158/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538315711_9724/original.png'
+      '/screenshots/2018_09_30_1538315707_158.png',
+      '/screenshots/2018_09_30_1538315711_9724.png'
     ]
   },
   {
@@ -388,7 +388,7 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['JavaScript', 'Canvas API', 'Algorithmic Optimization'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538311785_4978/original.png'
+      '/screenshots/2018_09_30_1538311785_4978.png'
     ]
   },
   {
@@ -401,7 +401,7 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['JavaScript', 'Simulation Engine', 'Hardware Emulation'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538311657_3803/original.png'
+      '/screenshots/2018_09_30_1538311657_3803.png'
     ]
   },
   {
@@ -414,8 +414,8 @@ export const archiveProjects: ProjectItem[] = [
     status: 'Completed',
     technologies: ['PHP', 'MySQL', 'Bootstrap', 'JavaScript'],
     screenshots: [
-      'https://kovalovs.lv/storage/2018_09_30/1538311223_6623/original.png',
-      'https://kovalovs.lv/storage/2018_09_30/1538311234_8363/original.png'
+      '/screenshots/2018_09_30_1538311223_6623.png',
+      '/screenshots/2018_09_30_1538311234_8363.png'
     ]
   }
 ];
