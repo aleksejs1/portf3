@@ -21,8 +21,8 @@ export const leadershipPillars: LeadershipPillar[] = [
         description: 'High performance begins with safety. When incidents occur, we run blameless post-mortems focused on system resilience and process improvement, not finding culprits.'
       },
       {
-        heading: 'Structured 1-on-1s & Deliberate Growth',
-        description: '1-on-1s are employee-owned coaching conversations, not status updates. I invest in clear career ladders, personalized feedback, and continuous engineering mentorship.'
+        heading: 'Structured 1-on-1s & Burnout Prevention',
+        description: '1-on-1s are employee-owned coaching conversations, not status updates. As AI tooling multiplies development speed and delivery cadence, structured 1-on-1s are crucial to calibrate sustainable pacing, detect cognitive fatigue early, and prevent engineer burnout.'
       },
       {
         heading: 'Autonomous Ownership with Context',
@@ -37,8 +37,8 @@ export const leadershipPillars: LeadershipPillar[] = [
     subtitle: 'Simplicity, resilience, and proven fundamentals over hype.',
     principles: [
       {
-        heading: 'Architecture for Business Outcomes',
-        description: 'Technology is an enabler, not a playground for resume-driven development. Every architectural decision is evaluated against cost, time-to-market, and maintainability.'
+        heading: 'Pragmatic AI & Multifold Team Velocity',
+        description: 'AI tooling is a genuine force multiplier when grounded in architectural discipline. I champion AI-assisted workflows to eliminate repetitive engineering toil and multiply delivery velocity 2x–3x, while keeping architecture, code reviews, and testing rigorous.'
       },
       {
         heading: 'Hands-on Technical Fluency',

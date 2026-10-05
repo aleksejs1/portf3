@@ -28,14 +28,15 @@ export const experiences: ExperienceItem[] = [
     location: 'Riga, Latvia',
     isLeadership: true,
     category: 'leadership',
-    summary: 'Leading engineering teams in high-scale IoT and fleet telematics. Championing people growth, delivery excellence, and pragmatic technical architecture aligned with company business objectives.',
+    summary: 'Leading engineering teams in high-scale IoT and fleet telematics. Championing people growth, delivery excellence, and pragmatic AI enablement to multiply team productivity while safeguarding engineering standards and team sustainability.',
     highlights: [
-      'Empower and mentor software engineers through transparent 1-on-1s, structured career paths, and tailored growth plans.',
-      'Refine engineering rituals and delivery cadence, reducing cycle time while raising code quality and reliability.',
+      'Pioneered pragmatic AI tooling and agentic workflows across the team, unlocking a multifold boost in delivery velocity while establishing clear architectural and code-review guardrails.',
+      'Empower and mentor software engineers through transparent 1-on-1s, structured career paths, and tailored growth plans — actively guarding against burnout in accelerated delivery environments.',
+      'Refine engineering rituals and delivery cadence, reducing cycle time while raising code quality, test coverage, and reliability.',
       'Bridge business strategy with engineering execution, partnering with Product and Executive stakeholders on roadmaps.',
       'Foster a culture of ownership, psychological safety, and continuous improvement across the engineering group.'
     ],
-    skills: ['People Leadership', 'Engineering Management', 'Delivery & Agile', 'IoT & Telematics', 'Talent Growth', 'Tech Strategy']
+    skills: ['People Leadership', 'Engineering Management', 'AI Team Enablement', 'Delivery & Agile', 'IoT & Telematics', 'Talent Growth', 'Tech Strategy']
   },
   {
     period: '01.2022 — 03.2025',
@@ -49,10 +50,11 @@ export const experiences: ExperienceItem[] = [
     highlights: [
       'Led cross-functional teams of backend developers, frontend engineers, sysadmins, and QA on mission-critical projects.',
       'Spearheaded architectural migrations and infrastructure upgrades, maintaining 99.9%+ availability under heavy load.',
+      'Fostered early adoption of AI-assisted engineering tools and automated workflows, cutting down routine task overhead and accelerating sprint turnaround.',
       'Leveraged 10+ years of technical background to communicate with engineers at the lowest code level while presenting clear business value to executives.',
       'Instituted collaborative planning, risk management, and streamlined incident post-mortems.'
     ],
-    skills: ['Technical Leadership', 'Cross-Functional Management', 'High-Load Systems', 'Project Delivery', 'Architecture Facilitation']
+    skills: ['Technical Leadership', 'Cross-Functional Management', 'AI-Augmented Workflows', 'High-Load Systems', 'Project Delivery', 'Architecture Facilitation']
   },
   {
     period: '11.2021 — 01.2022',
