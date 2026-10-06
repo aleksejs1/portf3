@@ -1,0 +1,414 @@
+---
+import '../styles/global.css';
+import CvEmblem from '../components/cv/CvEmblem.astro';
+import CvChainLogo from '../components/cv/CvChainLogo.astro';
+import { cvData, calculateTenure } from '../data/cv';
+
+// Compute initial SSR tenure for static rendering
+const maponExperience = cvData.experience.find((e) => e.id === 'mapon');
+const initialMaponTenure = maponExperience
+  ? calculateTenure(maponExperience.startYear, maponExperience.startMonth)
+  : '1 year 7 months';
+---
+
+<!doctype html>
+<html lang="en" class="bg-zinc-950 text-zinc-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Curriculum Vitae — Aleksejs Kovaļovs</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Curriculum Vitae of Aleksejs Kovaļovs — Engineering Leader & CTO Candidate" />
+
+    <!-- Typography Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Base font styles for CV paper sheets */
+      .cv-font-mono {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      .cv-font-sans {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+
+      /* Screen paper presentation */
+      @media screen {
+        .cv-paper {
+          width: 100%;
+          max-width: 210mm;
+          min-height: 297mm;
+          background-color: #f7f9f6;
+          color: #18181b;
+          box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+          border-radius: 2px;
+          padding: 12mm 16mm;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 2rem;
+        }
+      }
+
+      /* High-fidelity Print & PDF layout */
+      @page {
+        size: A4 portrait;
+        margin: 10mm 15mm 10mm 15mm;
+      }
+
+      @media print {
+        html,
+        body {
+          background: #ffffff !important;
+          color: #18181b !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        .no-print {
+          display: none !important;
+        }
+
+        .cv-paper {
+          box-shadow: none !important;
+          border: none !important;
+          border-radius: 0 !important;
+          background-color: #ffffff !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          max-width: 100% !important;
+          width: 100% !important;
+          min-height: auto !important;
+          height: auto !important;
+        }
+
+        .cv-page-1 {
+          page-break-after: always !important;
+          break-after: page !important;
+        }
+
+        .cv-page-2 {
+          page-break-before: always !important;
+          break-before: page !important;
+          page-break-after: avoid !important;
+          break-after: avoid !important;
+        }
+
+        /* Ensure links look clean when printing */
+        a {
+          color: inherit !important;
+          text-decoration: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
+    <!-- Sticky Screen Action Toolbar (hidden when printed) -->
+    <header class="no-print sticky top-0 z-50 bg-zinc-900/90 backdrop-blur-md border-b border-zinc-800/80 px-4 py-3 shadow-lg">
+      <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <a
+            href="/"
+            class="text-xs font-mono uppercase tracking-wider text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5"
+            title="Return to main portfolio"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            kovalovs.lv
+          </a>
+          <span class="text-zinc-600">|</span>
+          <span class="text-xs font-medium text-zinc-300">Executive CV</span>
+          <span class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Dynamic tenure active (<span id="toolbar-tenure">{initialMaponTenure}</span>)
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            onclick="window.print()"
+            class="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white text-xs font-medium rounded-md shadow-sm transition-colors cursor-pointer"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print / Save PDF</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main CV Sheet Container -->
+    <main class="py-6 sm:py-10 px-2 sm:px-4">
+      <!-- ================= PAGE 1 ================= -->
+      <article class="cv-paper cv-page-1 flex flex-col justify-between" id="cv-page-1">
+        <div>
+          <!-- Header Area -->
+          <div class="text-center pt-1 pb-3">
+            <CvEmblem />
+            <h1 class="cv-font-mono text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 mt-2">
+              Curriculum Vitae
+            </h1>
+            <CvChainLogo />
+            <h2 class="cv-font-mono text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight mt-1">
+              {cvData.personal.name}
+            </h2>
+            <p class="cv-font-sans text-sm text-zinc-700 mt-0.5">
+              Born on May 16, 1990 in Riga <span class="text-red-500">❤</span>
+            </p>
+          </div>
+
+          <!-- Contacts Section -->
+          <section class="mt-2 mb-4 border-t border-b border-zinc-300/80 py-2.5">
+            <h3 class="cv-font-mono text-base font-bold text-zinc-900 mb-1.5 text-center sm:text-left">
+              Contacts
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-xs sm:text-[13px] cv-font-mono text-zinc-800">
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-zinc-900 min-w-[70px]">Email:</span>
+                <a
+                  href={`mailto:${cvData.personal.contacts.email}`}
+                  class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+                >
+                  {cvData.personal.contacts.email}
+                </a>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-zinc-900 min-w-[70px]">Phone:</span>
+                <a
+                  href={`tel:${cvData.personal.contacts.phone.replace(/\s+/g, '')}`}
+                  class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+                >
+                  {cvData.personal.contacts.phone}
+                </a>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-zinc-900 min-w-[70px]">LinkedIn:</span>
+                <a
+                  href={cvData.personal.contacts.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+                >
+                  {cvData.personal.contacts.linkedin}
+                </a>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-zinc-900 min-w-[70px]">Portfolio:</span>
+                <a
+                  href={cvData.personal.contacts.portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+                >
+                  {cvData.personal.contacts.portfolio}
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2 Columns: Education (Left) & Work Experience (Right) -->
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 sm:gap-8 mt-4">
+            <!-- Left Column: Education -->
+            <section class="sm:col-span-5">
+              <h3 class="cv-font-mono text-base font-bold text-zinc-900 mb-3 border-b border-zinc-200 pb-1">
+                Education
+              </h3>
+              <div class="space-y-3.5 text-xs sm:text-[13px]">
+                {cvData.education.map((item) => (
+                  <div class="space-y-0.5">
+                    <p class="italic text-zinc-800 leading-snug cv-font-mono">
+                      <span class="text-zinc-600 mr-1">↬</span>
+                      <span>{item.period} {item.institution}</span>
+                    </p>
+                    <p class="cv-font-sans text-zinc-800 font-normal pl-4 leading-snug">
+                      {item.degree}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <!-- Right Column: Work experience -->
+            <section class="sm:col-span-7">
+              <h3 class="cv-font-mono text-base font-bold text-zinc-900 mb-3 border-b border-zinc-200 pb-1">
+                Work experience
+              </h3>
+              <div class="space-y-3.5 text-xs sm:text-[13px]">
+                {/* 1. AS Mapon - Dynamic tenure */}
+                <div class="space-y-0.5">
+                  <p class="italic text-zinc-800 leading-snug cv-font-mono">
+                    <span class="text-zinc-600 mr-1">↬</span>
+                    <span>Since Mar. 2025</span>{' '}
+                    <span
+                      id="mapon-tenure"
+                      data-start-year={maponExperience?.startYear}
+                      data-start-month={maponExperience?.startMonth}
+                      class="text-zinc-700"
+                    >
+                      ({initialMaponTenure})
+                    </span>
+                  </p>
+                  <p class="font-bold text-zinc-900 pl-4 cv-font-mono leading-tight">
+                    AS Mapon
+                  </p>
+                  <p class="italic text-zinc-700 pl-4 cv-font-sans leading-tight">
+                    {maponExperience?.role || 'Engineering Manager'}
+                  </p>
+                </div>
+
+                {/* Other work experiences */}
+                {cvData.experience
+                  .filter((e) => !e.isCurrent)
+                  .map((item) => (
+                    <div class="space-y-0.5">
+                      <p class="italic text-zinc-800 leading-snug cv-font-mono">
+                        <span class="text-zinc-600 mr-1">↬</span>
+                        <span>{item.periodText}</span>
+                      </p>
+                      <p class="font-bold text-zinc-900 pl-4 cv-font-mono leading-tight">
+                        {item.company}
+                      </p>
+                      <p class="italic text-zinc-700 pl-4 cv-font-sans leading-tight">
+                        {item.role}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Experience and Qualities (Bottom of Page 1) -->
+        <section class="mt-6 pt-3.5 border-t border-zinc-300/80">
+          <h3 class="cv-font-mono text-base font-bold text-zinc-900 mb-3 text-center sm:text-left">
+            Experience and Qualities
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-xs sm:text-[13px] cv-font-mono">
+            <!-- Column 1 -->
+            <div class="space-y-2.5">
+              {cvData.qualities[0].map((item) => (
+                <div class="flex items-start gap-1.5 leading-snug">
+                  <span class="text-emerald-700 font-bold shrink-0">✓</span>
+                  <span class="text-zinc-800">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- Column 2 -->
+            <div class="space-y-2.5">
+              {cvData.qualities[1].map((item) => (
+                <div class="flex items-start gap-1.5 leading-snug">
+                  <span class="text-emerald-700 font-bold shrink-0">✓</span>
+                  <span class="text-zinc-800">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <!-- Visual divider on screen (hidden when printed) -->
+      <div class="no-print max-w-[210mm] mx-auto text-center my-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-400">
+          <span>Page 1 / 2</span>
+          <span class="text-zinc-600">•</span>
+          <span>A4 Sheet Separator</span>
+        </div>
+      </div>
+
+      <!-- ================= PAGE 2 ================= -->
+      <article class="cv-paper cv-page-2 flex flex-col justify-start" id="cv-page-2">
+        <!-- Header Area of Page 2 -->
+        <div class="text-center pt-1 pb-4">
+          <CvEmblem />
+          <CvChainLogo />
+          <h2 class="cv-font-mono text-lg sm:text-xl font-bold text-zinc-900 tracking-tight mt-1">
+            Current responsibilities
+          </h2>
+        </div>
+
+        <!-- Responsibilities Groups -->
+        <div class="space-y-4 text-xs sm:text-[13px]">
+          {cvData.responsibilities.map((group) => (
+            <div class="space-y-1.5">
+              <h3 class="cv-font-mono font-medium text-zinc-900 italic text-[13px] sm:text-sm">
+                {group.title}
+              </h3>
+              <ul class="space-y-1 pl-1">
+                {group.bullets.map((bullet) => (
+                  <li class="flex items-start gap-2 leading-relaxed">
+                    <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5">❖</span>
+                    <span class="italic text-zinc-800 cv-font-sans">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </article>
+    </main>
+
+    <!-- Client-side real-time tenure updater script -->
+    <script is:inline>
+      (function () {
+        function calculateLiveTenure(startYear, startMonth) {
+          var now = new Date();
+          var currentYear = now.getFullYear();
+          var currentMonth = now.getMonth() + 1; // 1-12
+
+          var totalMonths = (currentYear - startYear) * 12 + (currentMonth - startMonth);
+          if (totalMonths < 0) totalMonths = 0;
+
+          var years = Math.floor(totalMonths / 12);
+          var months = totalMonths % 12;
+
+          var yearPart = years > 0 ? years + (years === 1 ? ' year' : ' years') : '';
+          var monthPart = months > 0 ? months + (months === 1 ? ' month' : ' months') : '';
+
+          if (yearPart && monthPart) {
+            return yearPart + ' ' + monthPart;
+          }
+          if (yearPart) {
+            return yearPart;
+          }
+          return monthPart || '0 months';
+        }
+
+        function updateTenureElements() {
+          var el = document.getElementById('mapon-tenure');
+          if (!el) return;
+
+          var startYear = parseInt(el.getAttribute('data-start-year') || '2025', 10);
+          var startMonth = parseInt(el.getAttribute('data-start-month') || '3', 10);
+          var tenure = calculateLiveTenure(startYear, startMonth);
+
+          el.textContent = '(' + tenure + ')';
+
+          var toolbarEl = document.getElementById('toolbar-tenure');
+          if (toolbarEl) {
+            toolbarEl.textContent = tenure;
+          }
+        }
+
+        // Run immediately on load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', updateTenureElements);
+        } else {
+          updateTenureElements();
+        }
+      })();
+    </script>
+  </body>
+</html>
