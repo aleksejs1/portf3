@@ -140,7 +140,7 @@ const initialMaponTenure = maponExperience
         .cv-contacts-grid {
           display: grid !important;
           grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          column-gap: 6mm !important;
+          column-gap: 8mm !important;
           row-gap: 1mm !important;
           font-size: 11px !important;
           line-height: 1.35 !important;
@@ -148,8 +148,8 @@ const initialMaponTenure = maponExperience
 
         .cv-timeline-grid {
           display: grid !important;
-          grid-template-columns: 5fr 7fr !important;
-          column-gap: 6mm !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          column-gap: 8mm !important;
         }
 
         .cv-education-col {
@@ -173,7 +173,7 @@ const initialMaponTenure = maponExperience
         .cv-qualities-grid {
           display: grid !important;
           grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          column-gap: 6mm !important;
+          column-gap: 8mm !important;
           row-gap: 1.5mm !important;
           font-size: 10.5px !important;
           line-height: 1.35 !important;
@@ -309,7 +309,7 @@ const initialMaponTenure = maponExperience
             </h3>
             <div class="cv-contacts-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 text-xs sm:text-[13px] cv-font-mono text-zinc-800">
               <div class="flex items-center gap-1.5">
-                <span class="font-bold text-zinc-900 min-w-[70px]">Email:</span>
+                <span class="font-bold text-zinc-900 min-w-[82px]">Email:</span>
                 <a
                   href={`mailto:${cvData.personal.contacts.email}`}
                   class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
@@ -318,7 +318,7 @@ const initialMaponTenure = maponExperience
                 </a>
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="font-bold text-zinc-900 min-w-[70px]">Phone:</span>
+                <span class="font-bold text-zinc-900 min-w-[82px]">Phone:</span>
                 <a
                   href={`tel:${cvData.personal.contacts.phone.replace(/\s+/g, '')}`}
                   class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
@@ -327,7 +327,7 @@ const initialMaponTenure = maponExperience
                 </a>
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="font-bold text-zinc-900 min-w-[70px]">LinkedIn:</span>
+                <span class="font-bold text-zinc-900 min-w-[82px]">LinkedIn:</span>
                 <a
                   href={cvData.personal.contacts.linkedinUrl}
                   target="_blank"
@@ -338,7 +338,7 @@ const initialMaponTenure = maponExperience
                 </a>
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="font-bold text-zinc-900 min-w-[70px]">Portfolio:</span>
+                <span class="font-bold text-zinc-900 min-w-[82px]">Portfolio:</span>
                 <a
                   href={cvData.personal.contacts.portfolioUrl}
                   target="_blank"
@@ -352,9 +352,9 @@ const initialMaponTenure = maponExperience
           </section>
 
           <!-- 2 Columns: Education (Left) & Work Experience (Right) -->
-          <div class="cv-timeline-grid grid grid-cols-1 sm:grid-cols-12 gap-5 sm:gap-6 mt-3">
+          <div class="cv-timeline-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mt-3">
             <!-- Left Column: Education -->
-            <section class="cv-education-col sm:col-span-5">
+            <section class="cv-education-col">
               <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2 border-b border-zinc-200 pb-0.5">
                 Education
               </h3>
@@ -374,7 +374,7 @@ const initialMaponTenure = maponExperience
             </section>
 
             <!-- Right Column: Work experience -->
-            <section class="cv-experience-col sm:col-span-7">
+            <section class="cv-experience-col">
               <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2 border-b border-zinc-200 pb-0.5">
                 Work experience
               </h3>
@@ -450,12 +450,6 @@ const initialMaponTenure = maponExperience
             </div>
           </div>
         </section>
-
-        <!-- Page 1 Bottom Footer -->
-        <div class="pt-2 mt-2.5 border-t border-zinc-300/80 flex items-center justify-between text-[11px] font-mono text-zinc-500">
-          <span>Aleksejs Kovaļovs · Curriculum Vitae</span>
-          <span>Page 1 of 2</span>
-        </div>
       </article>
 
       <!-- Visual divider on screen (hidden when printed) -->
@@ -521,11 +515,6 @@ const initialMaponTenure = maponExperience
           </div>
         </div>
 
-        <!-- Page 2 Bottom Footer note -->
-        <div class="pt-3 mt-4 border-t border-zinc-300/80 flex items-center justify-between text-[11px] font-mono text-zinc-500">
-          <span>Aleksejs Kovaļovs · Curriculum Vitae</span>
-          <span>Page 2 of 2</span>
-        </div>
       </article>
     </main>
 
