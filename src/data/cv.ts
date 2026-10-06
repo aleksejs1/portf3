@@ -175,50 +175,49 @@ export const cvData: CvData = {
     {
       title: 'People Leadership & Culture',
       bullets: [
-        'Establish psychological safety and a blameless culture, empowering engineers to innovate without fear of failure',
-        'Drive individual career growth through structured 1-on-1s, tailored growth roadmaps, and proactive burnout prevention',
-        'Facilitate cross-team empathy and open communication channels across the entire engineering department',
-        'Conduct IT department exit interviews, synthesizing root-cause feedback to improve retention and organizational health'
+        'Establish psychological safety and a blameless culture empowering high-trust engineering',
+        'Drive engineer growth via structured 1-on-1s, tailored career paths, and burnout prevention',
+        'Conduct IT department exit interviews, synthesizing root-cause feedback to improve retention'
       ]
     },
     {
       title: 'Applied AI & Innovation',
       bullets: [
-        'Spearhead pragmatic AI adoption across daily engineering workflows, multiplying team velocity and output',
-        'Design and lead hands-on workshops to upskill engineering teams in modern AI tooling and agentic workflows',
-        'Build rapid AI-assisted proof-of-concepts (PoCs) to stress-test emerging architectures and validate strategic feasibility'
+        'Spearhead pragmatic AI adoption and custom domain skills to eliminate operational toil',
+        'Lead hands-on team workshops upskilling engineers in agentic workflows and AI tooling',
+        'Build rapid AI-assisted PoCs to stress-test emerging architectures and strategic feasibility'
       ]
     },
     {
-      title: 'Technology Strategy & Governance',
+      title: 'Strategy, OKRs & Delivery',
       bullets: [
-        'Co-author and shape company-wide technical strategy alongside executive stakeholders',
-        'Maintain architectural governance, establishing clear guardrails and proactively steering projects when technical drift occurs',
-        'Balance immediate business delivery velocity with long-term architectural sustainability and technical debt reduction'
+        'Co-author technical strategy and lead quarterly roadmap planning aligned with business goals',
+        'Define team OKRs and measurable engineering KPIs to drive focus and accountability',
+        'Delivery oversight: measure sprint predictability, proactively remove blockers, and safeguard SLAs'
       ]
     },
     {
-      title: 'Engineering Processes & SDLC',
+      title: 'Architecture & Governance',
       bullets: [
-        'Modernize software development lifecycle (SDLC) to align with strategic delivery goals and continuous delivery standards',
-        'Transform engineering documentation into a reliable, single-source-of-truth knowledge base',
-        'Architect domain-specific AI skills and automation workflows to eliminate routine operational and procedural friction'
+        'Enforce architectural governance, establishing clear guardrails to prevent technical drift',
+        'Balance immediate delivery velocity with long-term platform resilience and debt reduction',
+        'Consolidate fragmented, team-isolated solutions into standardized, reusable platforms'
       ]
     },
     {
-      title: 'Cross-Team Alignment & Systems Thinking',
+      title: 'Cross-Team Alignment & SDLC',
       bullets: [
-        'Consolidate fragmented, team-isolated solutions into standardized, reusable company-wide platforms',
-        'Facilitate cross-functional architecture forums and RFC rituals to drive collaborative, data-driven decisions',
-        'Bridge alignment and trust between Product and Engineering leadership on delivery roadmaps and trade-offs'
+        'Bridge alignment between Product and Engineering leadership on roadmaps and trade-offs',
+        'Modernize SDLC and turn engineering documentation into a reliable single source of truth',
+        'Facilitate cross-team architecture forums and RFC rituals for consensus-driven decisions'
       ]
     },
     {
       title: 'Platform, CI/CD & Quality Engineering',
       bullets: [
-        'Champion modern engineering standards across pipelines, accelerating cycle time from commit to production',
-        'Significantly optimize frontend build performance and cloud resource consumption across CI/CD runners',
-        'Drive company-wide adoption of automated End-to-End (E2E) testing suites to safeguard release confidence and eliminate regression risks'
+        'Accelerate delivery cadence toward industry benchmarks from commit to production',
+        'Significantly optimize frontend build performance and cloud runner resource consumption',
+        'Champion automated End-to-End (E2E) testing adoption to eliminate regression risks'
       ]
     }
   ]

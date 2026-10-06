@@ -58,7 +58,7 @@ const initialMaponTenure = maponExperience
       /* High-fidelity Print & PDF layout */
       @page {
         size: A4 portrait;
-        margin: 10mm 15mm 10mm 15mm;
+        margin: 8mm 12mm 8mm 12mm;
       }
 
       @media print {
@@ -99,6 +99,47 @@ const initialMaponTenure = maponExperience
           break-before: page !important;
           page-break-after: avoid !important;
           break-after: avoid !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Page 2 compact print layout to guarantee exactly 2 pages */
+        .cv-page-2-header {
+          padding-top: 0 !important;
+          padding-bottom: 2mm !important;
+        }
+
+        .cv-page-2-header svg {
+          max-height: 24px !important;
+        }
+
+        .cv-page-2-title {
+          font-size: 13.5px !important;
+          margin-top: 1mm !important;
+        }
+
+        .cv-responsibilities-container {
+          gap: 1.8mm !important;
+        }
+
+        .cv-resp-group {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        .cv-resp-title {
+          font-size: 11px !important;
+          line-height: 1.2 !important;
+          margin-bottom: 0.6mm !important;
+        }
+
+        .cv-resp-list {
+          gap: 0.6mm !important;
+        }
+
+        .cv-resp-item {
+          font-size: 10px !important;
+          line-height: 1.26 !important;
         }
 
         /* Ensure links look clean when printing */
@@ -331,24 +372,24 @@ const initialMaponTenure = maponExperience
       <!-- ================= PAGE 2 ================= -->
       <article class="cv-paper cv-page-2 flex flex-col justify-start" id="cv-page-2">
         <!-- Header Area of Page 2 -->
-        <div class="text-center pt-1 pb-4">
+        <div class="cv-page-2-header text-center pt-1 pb-4">
           <CvEmblem />
           <CvChainLogo />
-          <h2 class="cv-font-mono text-lg sm:text-xl font-bold text-zinc-900 tracking-tight mt-1">
+          <h2 class="cv-page-2-title cv-font-mono text-lg sm:text-xl font-bold text-zinc-900 tracking-tight mt-1">
             Current responsibilities
           </h2>
         </div>
 
         <!-- Responsibilities Groups -->
-        <div class="space-y-4 text-xs sm:text-[13px]">
+        <div class="cv-responsibilities-container flex flex-col space-y-3 sm:space-y-3.5 text-xs sm:text-[13px]">
           {cvData.responsibilities.map((group) => (
-            <div class="space-y-1.5">
-              <h3 class="cv-font-mono font-medium text-zinc-900 italic text-[13px] sm:text-sm">
+            <div class="cv-resp-group space-y-1">
+              <h3 class="cv-resp-title cv-font-mono font-medium text-zinc-900 italic text-[12.5px] sm:text-sm">
                 {group.title}
               </h3>
-              <ul class="space-y-1 pl-1">
+              <ul class="cv-resp-list flex flex-col space-y-1 pl-1">
                 {group.bullets.map((bullet) => (
-                  <li class="flex items-start gap-2 leading-relaxed">
+                  <li class="cv-resp-item flex items-start gap-2 leading-relaxed">
                     <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5">❖</span>
                     <span class="italic text-zinc-800 cv-font-sans">{bullet}</span>
                   </li>
