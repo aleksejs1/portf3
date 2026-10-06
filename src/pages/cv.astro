@@ -29,7 +29,7 @@ const initialMaponTenure = maponExperience
       rel="stylesheet"
     />
 
-    <style>
+    <style is:global>
       /* Base font styles for CV paper sheets */
       .cv-font-mono {
         font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -48,7 +48,7 @@ const initialMaponTenure = maponExperience
           color: #18181b;
           box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
           border-radius: 2px;
-          padding: 12mm 16mm;
+          padding: 10mm 15mm;
           margin-left: auto;
           margin-right: auto;
           margin-bottom: 2rem;
@@ -58,22 +58,34 @@ const initialMaponTenure = maponExperience
       /* High-fidelity Print & PDF layout */
       @page {
         size: A4 portrait;
-        margin: 12mm 18mm 12mm 18mm;
+        margin: 8mm 12mm 8mm 12mm;
       }
 
       @media print {
+        *,
+        *::before,
+        *::after {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
         html,
         body {
           background: #ffffff !important;
           color: #18181b !important;
           margin: 0 !important;
           padding: 0 !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
+          width: 100% !important;
         }
 
         .no-print {
           display: none !important;
+        }
+
+        main {
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 100% !important;
         }
 
         .cv-paper {
@@ -87,11 +99,16 @@ const initialMaponTenure = maponExperience
           width: 100% !important;
           min-height: auto !important;
           height: auto !important;
+          display: block !important;
         }
 
         .cv-page-1 {
+          page-break-before: auto !important;
+          break-before: auto !important;
           page-break-after: always !important;
           break-after: page !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
         }
 
         .cv-page-2 {
@@ -103,23 +120,91 @@ const initialMaponTenure = maponExperience
           break-inside: avoid !important;
         }
 
-        /* Page 2 balanced print layout filling both width & height */
+        /* Page 1 Grids & Spacings */
+        .cv-page-1-header {
+          padding-top: 0 !important;
+          padding-bottom: 2mm !important;
+        }
+
+        .cv-page-1-header svg {
+          max-height: 28px !important;
+        }
+
+        .cv-contacts-section {
+          margin-top: 1.5mm !important;
+          margin-bottom: 2.5mm !important;
+          padding-top: 1.5mm !important;
+          padding-bottom: 1.5mm !important;
+        }
+
+        .cv-contacts-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          column-gap: 6mm !important;
+          row-gap: 1mm !important;
+          font-size: 11px !important;
+          line-height: 1.35 !important;
+        }
+
+        .cv-timeline-grid {
+          display: grid !important;
+          grid-template-columns: 5fr 7fr !important;
+          column-gap: 6mm !important;
+        }
+
+        .cv-education-col {
+          grid-column: 1 / 2 !important;
+        }
+
+        .cv-experience-col {
+          grid-column: 2 / 3 !important;
+        }
+
+        .cv-timeline-item {
+          font-size: 10.5px !important;
+          line-height: 1.3 !important;
+        }
+
+        .cv-qualities-section {
+          margin-top: 2.5mm !important;
+          padding-top: 2mm !important;
+        }
+
+        .cv-qualities-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          column-gap: 6mm !important;
+          row-gap: 1.5mm !important;
+          font-size: 10.5px !important;
+          line-height: 1.35 !important;
+        }
+
+        /* Page 2 Layout */
         .cv-page-2-header {
-          padding-top: 1mm !important;
-          padding-bottom: 5mm !important;
+          padding-top: 0 !important;
+          padding-bottom: 4mm !important;
         }
 
         .cv-page-2-header svg {
-          max-height: 34px !important;
+          max-height: 30px !important;
         }
 
         .cv-page-2-title {
-          font-size: 17px !important;
-          margin-top: 2mm !important;
+          font-size: 15px !important;
+          margin-top: 1.5mm !important;
         }
 
-        .cv-responsibilities-container {
-          gap: 6mm !important;
+        .cv-responsibilities-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          column-gap: 8mm !important;
+          row-gap: 4.5mm !important;
+        }
+
+        .cv-resp-col {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 4mm !important;
         }
 
         .cv-resp-group {
@@ -128,22 +213,28 @@ const initialMaponTenure = maponExperience
         }
 
         .cv-resp-title {
-          font-size: 13.5px !important;
-          line-height: 1.35 !important;
-          margin-bottom: 2mm !important;
+          font-size: 12px !important;
+          line-height: 1.3 !important;
+          margin-bottom: 1.5mm !important;
         }
 
         .cv-resp-list {
-          gap: 2mm !important;
+          list-style: none !important;
+          list-style-type: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          gap: 1.5mm !important;
         }
 
         .cv-resp-item {
-          font-size: 12.5px !important;
-          line-height: 1.55 !important;
+          list-style: none !important;
+          list-style-type: none !important;
+          font-size: 11px !important;
+          line-height: 1.4 !important;
           font-family: 'JetBrains Mono', ui-monospace, monospace !important;
         }
 
-        /* Ensure links look clean when printing */
+        /* Clean link styling when printing */
         a {
           color: inherit !important;
           text-decoration: none !important;
@@ -153,7 +244,7 @@ const initialMaponTenure = maponExperience
   </head>
   <body class="min-h-screen bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
     <!-- Sticky Screen Action Toolbar (hidden when printed) -->
-    <header class="no-print sticky top-0 z-50 bg-zinc-900/90 backdrop-blur-md border-b border-zinc-800/80 px-4 py-3 shadow-lg">
+    <header class="no-print print:hidden sticky top-0 z-50 bg-zinc-900/90 backdrop-blur-md border-b border-zinc-800/80 px-4 py-3 shadow-lg">
       <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-3">
         <div class="flex items-center gap-3">
           <a
@@ -197,26 +288,26 @@ const initialMaponTenure = maponExperience
       <article class="cv-paper cv-page-1 flex flex-col justify-between" id="cv-page-1">
         <div>
           <!-- Header Area -->
-          <div class="text-center pt-1 pb-3">
+          <div class="cv-page-1-header text-center pt-1 pb-2">
             <CvEmblem />
-            <h1 class="cv-font-mono text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 mt-2">
+            <h1 class="cv-font-mono text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 mt-1.5">
               Curriculum Vitae
             </h1>
             <CvChainLogo />
             <h2 class="cv-font-mono text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight mt-1">
               {cvData.personal.name}
             </h2>
-            <p class="cv-font-sans text-sm text-zinc-700 mt-0.5">
+            <p class="cv-font-sans text-xs sm:text-sm text-zinc-700 mt-0.5">
               Born on May 16, 1990 in Riga <span class="text-red-500">❤</span>
             </p>
           </div>
 
           <!-- Contacts Section -->
-          <section class="mt-2 mb-4 border-t border-b border-zinc-300/80 py-2.5">
-            <h3 class="cv-font-mono text-base font-bold text-zinc-900 mb-1.5 text-center sm:text-left">
+          <section class="cv-contacts-section mt-1.5 mb-3 border-t border-b border-zinc-300/80 py-2">
+            <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-1 text-center sm:text-left">
               Contacts
             </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-xs sm:text-[13px] cv-font-mono text-zinc-800">
+            <div class="cv-contacts-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 text-xs sm:text-[13px] cv-font-mono text-zinc-800">
               <div class="flex items-center gap-1.5">
                 <span class="font-bold text-zinc-900 min-w-[70px]">Email:</span>
                 <a
@@ -261,20 +352,20 @@ const initialMaponTenure = maponExperience
           </section>
 
           <!-- 2 Columns: Education (Left) & Work Experience (Right) -->
-          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 sm:gap-8 mt-4">
+          <div class="cv-timeline-grid grid grid-cols-1 sm:grid-cols-12 gap-5 sm:gap-6 mt-3">
             <!-- Left Column: Education -->
-            <section class="sm:col-span-5">
-              <h3 class="cv-font-mono text-base font-bold text-zinc-900 mb-3 border-b border-zinc-200 pb-1">
+            <section class="cv-education-col sm:col-span-5">
+              <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2 border-b border-zinc-200 pb-0.5">
                 Education
               </h3>
-              <div class="space-y-3.5 text-xs sm:text-[13px]">
+              <div class="space-y-2.5 text-xs sm:text-[13px]">
                 {cvData.education.map((item) => (
-                  <div class="space-y-0.5">
-                    <p class="italic text-zinc-800 leading-snug cv-font-mono">
+                  <div class="cv-timeline-item space-y-0.5">
+                    <p class="italic text-zinc-800 leading-tight cv-font-mono">
                       <span class="text-zinc-600 mr-1">↬</span>
                       <span>{item.period} {item.institution}</span>
                     </p>
-                    <p class="cv-font-sans text-zinc-800 font-normal pl-4 leading-snug">
+                    <p class="cv-font-sans text-zinc-800 font-normal pl-4 leading-tight">
                       {item.degree}
                     </p>
                   </div>
@@ -283,14 +374,14 @@ const initialMaponTenure = maponExperience
             </section>
 
             <!-- Right Column: Work experience -->
-            <section class="sm:col-span-7">
-              <h3 class="cv-font-mono text-base font-bold text-zinc-900 mb-3 border-b border-zinc-200 pb-1">
+            <section class="cv-experience-col sm:col-span-7">
+              <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2 border-b border-zinc-200 pb-0.5">
                 Work experience
               </h3>
-              <div class="space-y-3.5 text-xs sm:text-[13px]">
+              <div class="space-y-2 text-xs sm:text-[13px]">
                 {/* 1. AS Mapon - Dynamic tenure */}
-                <div class="space-y-0.5">
-                  <p class="italic text-zinc-800 leading-snug cv-font-mono">
+                <div class="cv-timeline-item space-y-0.5">
+                  <p class="italic text-zinc-800 leading-tight cv-font-mono">
                     <span class="text-zinc-600 mr-1">↬</span>
                     <span>Since Mar. 2025</span>{' '}
                     <span
@@ -314,8 +405,8 @@ const initialMaponTenure = maponExperience
                 {cvData.experience
                   .filter((e) => !e.isCurrent)
                   .map((item) => (
-                    <div class="space-y-0.5">
-                      <p class="italic text-zinc-800 leading-snug cv-font-mono">
+                    <div class="cv-timeline-item space-y-0.5">
+                      <p class="italic text-zinc-800 leading-tight cv-font-mono">
                         <span class="text-zinc-600 mr-1">↬</span>
                         <span>{item.periodText}</span>
                       </p>
@@ -333,13 +424,13 @@ const initialMaponTenure = maponExperience
         </div>
 
         <!-- Experience and Qualities (Bottom of Page 1) -->
-        <section class="mt-6 pt-3.5 border-t border-zinc-300/80">
-          <h3 class="cv-font-mono text-base font-bold text-zinc-900 mb-3 text-center sm:text-left">
+        <section class="cv-qualities-section mt-4 pt-2.5 border-t border-zinc-300/80">
+          <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2 text-center sm:text-left">
             Experience and Qualities
           </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-xs sm:text-[13px] cv-font-mono">
+          <div class="cv-qualities-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-xs sm:text-[13px] cv-font-mono">
             <!-- Column 1 -->
-            <div class="space-y-2.5">
+            <div class="space-y-1.5">
               {cvData.qualities[0].map((item) => (
                 <div class="flex items-start gap-1.5 leading-snug">
                   <span class="text-emerald-700 font-bold shrink-0">✓</span>
@@ -349,7 +440,7 @@ const initialMaponTenure = maponExperience
             </div>
 
             <!-- Column 2 -->
-            <div class="space-y-2.5">
+            <div class="space-y-1.5">
               {cvData.qualities[1].map((item) => (
                 <div class="flex items-start gap-1.5 leading-snug">
                   <span class="text-emerald-700 font-bold shrink-0">✓</span>
@@ -361,14 +452,14 @@ const initialMaponTenure = maponExperience
         </section>
 
         <!-- Page 1 Bottom Footer -->
-        <div class="pt-2 mt-3 border-t border-zinc-300/80 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+        <div class="pt-2 mt-2.5 border-t border-zinc-300/80 flex items-center justify-between text-[11px] font-mono text-zinc-500">
           <span>Aleksejs Kovaļovs · Curriculum Vitae</span>
           <span>Page 1 of 2</span>
         </div>
       </article>
 
       <!-- Visual divider on screen (hidden when printed) -->
-      <div class="no-print max-w-[210mm] mx-auto text-center my-6">
+      <div class="no-print print:hidden max-w-[210mm] mx-auto text-center my-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-400">
           <span>Page 1 / 2</span>
           <span class="text-zinc-600">•</span>
@@ -380,7 +471,7 @@ const initialMaponTenure = maponExperience
       <article class="cv-paper cv-page-2 flex flex-col justify-between" id="cv-page-2">
         <div>
           <!-- Header Area of Page 2 -->
-          <div class="cv-page-2-header text-center pt-1 pb-5">
+          <div class="cv-page-2-header text-center pt-1 pb-4">
             <CvEmblem />
             <CvChainLogo />
             <h2 class="cv-page-2-title cv-font-mono text-lg sm:text-xl font-bold text-zinc-900 tracking-tight mt-1.5">
@@ -388,23 +479,45 @@ const initialMaponTenure = maponExperience
             </h2>
           </div>
 
-          <!-- Responsibilities Groups -->
-          <div class="cv-responsibilities-container flex flex-col space-y-4 sm:space-y-5 text-xs sm:text-[13px]">
-            {cvData.responsibilities.map((group) => (
-              <div class="cv-resp-group space-y-1.5">
-                <h3 class="cv-resp-title cv-font-mono font-bold text-zinc-900 italic text-[13px] sm:text-[13.5px]">
-                  {group.title}
-                </h3>
-                <ul class="cv-resp-list flex flex-col space-y-1.5 pl-1">
-                  {group.bullets.map((bullet) => (
-                    <li class="cv-resp-item flex items-start gap-2.5 leading-relaxed">
-                      <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5">❖</span>
-                      <span class="italic text-zinc-800 cv-font-mono">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <!-- Responsibilities 2-Column Grid -->
+          <div class="cv-responsibilities-grid grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-xs sm:text-[13px]">
+            <!-- Column 1: Groups 1, 2, 3 -->
+            <div class="cv-resp-col space-y-4">
+              {cvData.responsibilities.slice(0, 3).map((group) => (
+                <div class="cv-resp-group space-y-1.5">
+                  <h3 class="cv-resp-title cv-font-mono font-bold text-zinc-900 italic text-[13px] sm:text-[13.5px]">
+                    {group.title}
+                  </h3>
+                  <ul class="cv-resp-list list-none pl-0 space-y-1.5">
+                    {group.bullets.map((bullet) => (
+                      <li class="cv-resp-item list-none flex items-start gap-2 leading-relaxed">
+                        <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5 select-none">❖</span>
+                        <span class="italic text-zinc-800 cv-font-mono">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <!-- Column 2: Groups 4, 5, 6 -->
+            <div class="cv-resp-col space-y-4">
+              {cvData.responsibilities.slice(3, 6).map((group) => (
+                <div class="cv-resp-group space-y-1.5">
+                  <h3 class="cv-resp-title cv-font-mono font-bold text-zinc-900 italic text-[13px] sm:text-[13.5px]">
+                    {group.title}
+                  </h3>
+                  <ul class="cv-resp-list list-none pl-0 space-y-1.5">
+                    {group.bullets.map((bullet) => (
+                      <li class="cv-resp-item list-none flex items-start gap-2 leading-relaxed">
+                        <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5 select-none">❖</span>
+                        <span class="italic text-zinc-800 cv-font-mono">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
