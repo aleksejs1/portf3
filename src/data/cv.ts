@@ -177,47 +177,47 @@ export const cvData: CvData = {
       bullets: [
         'Establish psychological safety and a blameless culture empowering high-trust engineering',
         'Drive engineer growth via structured 1-on-1s, tailored career paths, and burnout prevention',
-        'Conduct IT department exit interviews, synthesizing root-cause feedback to improve retention'
+        'Conduct IT department exit interviews and analyze feedback to improve team retention'
       ]
     },
     {
       title: 'Applied AI & Innovation',
       bullets: [
-        'Spearhead pragmatic AI adoption and custom domain skills to eliminate operational toil',
-        'Lead hands-on team workshops upskilling engineers in agentic workflows and AI tooling',
-        'Build rapid AI-assisted PoCs to stress-test emerging architectures and strategic feasibility'
+        'Introduce practical AI tools and custom skills to automate routine team tasks',
+        'Lead hands-on workshops upskilling engineers in agentic workflows and modern AI tooling',
+        'Build rapid AI-assisted PoCs to test new architectures and validate technical ideas'
       ]
     },
     {
       title: 'Strategy, OKRs & Delivery',
       bullets: [
-        'Co-author technical strategy and lead quarterly roadmap planning aligned with business goals',
-        'Define team OKRs and measurable engineering KPIs to drive focus and accountability',
-        'Delivery oversight: measure sprint predictability, proactively remove blockers, and safeguard SLAs'
+        'Influence technical direction and lead quarterly roadmap planning aligned with business goals',
+        'Define team OKRs and clear delivery goals to drive focus and accountability',
+        'Manage project delivery: track team velocity, remove blockers, and improve system observability'
       ]
     },
     {
-      title: 'Architecture & Governance',
+      title: 'Architecture & Standards',
       bullets: [
-        'Enforce architectural governance, establishing clear guardrails to prevent technical drift',
-        'Balance immediate delivery velocity with long-term platform resilience and debt reduction',
+        'Set architectural standards and keep projects aligned with the technical vision',
+        'Balance fast feature delivery with system stability and technical debt reduction',
         'Consolidate fragmented, team-isolated solutions into standardized, reusable platforms'
       ]
     },
     {
       title: 'Cross-Team Alignment & SDLC',
       bullets: [
-        'Bridge alignment between Product and Engineering leadership on roadmaps and trade-offs',
-        'Modernize SDLC and turn engineering documentation into a reliable single source of truth',
-        'Facilitate cross-team architecture forums and RFC rituals for consensus-driven decisions'
+        'Bridge communication between Product and Engineering leadership on roadmaps and trade-offs',
+        'Modernize the SDLC and organize engineering documentation into a single source of truth',
+        'Host cross-team architecture discussions and use ADRs to make collective decisions'
       ]
     },
     {
       title: 'Platform, CI/CD & Quality Engineering',
       bullets: [
-        'Accelerate delivery cadence toward industry benchmarks from commit to production',
+        'Improve CI/CD pipelines to speed up delivery cadence from commit to production',
         'Significantly optimize frontend build performance and cloud runner resource consumption',
-        'Champion automated End-to-End (E2E) testing adoption to eliminate regression risks'
+        'Introduce automated End-to-End (E2E) testing to prevent bugs and release regressions'
       ]
     }
   ]

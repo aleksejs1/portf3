@@ -28,16 +28,16 @@ export const experiences: ExperienceItem[] = [
     location: 'Riga, Latvia',
     isLeadership: true,
     category: 'leadership',
-    summary: 'Leading engineering teams in high-scale IoT and fleet telematics. Championing people growth, cross-team platform standardization, and pragmatic AI enablement to multiply team delivery velocity while establishing organizational resilience and strict architectural guardrails.',
+    summary: 'Leading engineering teams in high-scale IoT and fleet telematics. Championing people growth, cross-team platform standardization, and practical AI enablement to multiply delivery velocity while establishing system stability and architectural standards.',
     highlights: [
-      'Pioneered pragmatic AI tooling, agentic workflows, and custom domain-specific AI skills to automate routine team processes, multiplying delivery throughput while enforcing code-review and testing standards.',
-      'Empower and mentor software engineers through structured 1-on-1s and personalized career roadmaps; conduct IT department exit interviews to systematically diagnose organizational health and strengthen retention.',
-      'Drive cross-team platform standardization, consolidating fragmented architectural solutions into shared reusable systems and facilitating departmental RFC consensus forums.',
-      'Modernize SDLC and delivery platform: championed automated End-to-End (E2E) testing adoption, slashed FE build resource consumption in CI/CD, and established single-source-of-truth documentation rituals.',
-      'Bridge business strategy with engineering execution, partnering closely with Product and Executive leadership to steer roadmaps, balance trade-offs, and proactively prevent technical drift.',
+      'Pioneered practical AI tooling, team workflows, and custom skills to automate routine team tasks, multiplying delivery throughput while maintaining code quality and testing standards.',
+      'Empower and mentor software engineers through structured 1-on-1s and personalized career roadmaps; conduct IT department exit interviews and analyze feedback to strengthen team retention.',
+      'Drive cross-team platform standardization, consolidating fragmented architectural solutions into shared reusable systems and using ADRs for collective decision-making.',
+      'Modernize the SDLC and delivery platform: introduced automated End-to-End (E2E) testing, slashed FE build resource consumption in CI/CD, and organized documentation into a single source of truth.',
+      'Influence technical direction and lead quarterly roadmap planning alongside Product and Executive leadership, setting team OKRs and tracking delivery predictability.',
       'Foster psychological safety and a blameless culture, actively guarding against burnout in accelerated, high-throughput delivery environments.'
     ],
-    skills: ['People Leadership', 'Cross-Team Standardization', 'SDLC Modernization', 'CI/CD & E2E Testing', 'AI Team Enablement', 'Architectural Governance', 'Tech Strategy', 'Talent Retention']
+    skills: ['People Leadership', 'Cross-Team Standardization', 'SDLC Modernization', 'CI/CD & E2E Testing', 'AI Team Enablement', 'Architecture Standards', 'OKRs & Roadmaps', 'Talent Retention']
   },
   {
     period: '01.2022 — 03.2025',
