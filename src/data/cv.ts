@@ -173,51 +173,52 @@ export const cvData: CvData = {
   ],
   responsibilities: [
     {
-      title: 'Manage teams and projects technical realization from idea to production',
+      title: 'People Leadership & Culture',
       bullets: [
-        'Meet with team members to come up with technical solutions',
-        'Developed a plan and sequence of implementation of technical solutions',
-        'Participated in research of competitors solutions'
+        'Establish psychological safety and a blameless culture, empowering engineers to innovate without fear of failure',
+        'Drive individual career growth through structured 1-on-1s, tailored growth roadmaps, and proactive burnout prevention',
+        'Facilitate cross-team empathy and open communication channels across the entire engineering department',
+        'Conduct IT department exit interviews, synthesizing root-cause feedback to improve retention and organizational health'
       ]
     },
     {
-      title: 'Establish technical standards for developing and testing software',
+      title: 'Applied AI & Innovation',
       bullets: [
-        'Implemented documentation for manual testing team',
-        'Due to the established configuration standards, conflicts between developers and devops have disappeared'
+        'Spearhead pragmatic AI adoption across daily engineering workflows, multiplying team velocity and output',
+        'Design and lead hands-on workshops to upskill engineering teams in modern AI tooling and agentic workflows',
+        'Build rapid AI-assisted proof-of-concepts (PoCs) to stress-test emerging architectures and validate strategic feasibility'
       ]
     },
     {
-      title: 'Inspiring and mentor team members',
+      title: 'Technology Strategy & Governance',
       bullets: [
-        'Monitored conferences and encouraged participation by team members',
-        'Listened to ideas and facilitated their implementation'
+        'Co-author and shape company-wide technical strategy alongside executive stakeholders',
+        'Maintain architectural governance, establishing clear guardrails and proactively steering projects when technical drift occurs',
+        'Balance immediate business delivery velocity with long-term architectural sustainability and technical debt reduction'
       ]
     },
     {
-      title: 'Assist with testing software and troubleshooting issues',
+      title: 'Engineering Processes & SDLC',
       bullets: [
-        'Actively participated in the preparation of test plans',
-        'Found solutions for testing complex cases',
-        'Participated in the search for the causes of incomprehensible bugs'
+        'Modernize software development lifecycle (SDLC) to align with strategic delivery goals and continuous delivery standards',
+        'Transform engineering documentation into a reliable, single-source-of-truth knowledge base',
+        'Architect domain-specific AI skills and automation workflows to eliminate routine operational and procedural friction'
       ]
     },
     {
-      title: 'Optimize and maintain existing software',
+      title: 'Cross-Team Alignment & Systems Thinking',
       bullets: [
-        'Initiated optimization of configs and databases',
-        'Initiated division of large monoliths into medium services and microservices',
-        'Managed migration of legacy projects to Symfony'
+        'Consolidate fragmented, team-isolated solutions into standardized, reusable company-wide platforms',
+        'Facilitate cross-functional architecture forums and RFC rituals to drive collaborative, data-driven decisions',
+        'Bridge alignment and trust between Product and Engineering leadership on delivery roadmaps and trade-offs'
       ]
     },
     {
-      title: 'Recommend tech upgrades to company leaders',
+      title: 'Platform, CI/CD & Quality Engineering',
       bullets: [
-        'Managed the project to implement LDAP authorization in all internal systems',
-        'Initiated the implementation of SSO over LDAP',
-        'Managed the transition of a high-load service from PHP to Golang',
-        'Promoted the update of developer tools',
-        'Explored the possibility of implementing additional Jira plugins'
+        'Champion modern engineering standards across pipelines, accelerating cycle time from commit to production',
+        'Significantly optimize frontend build performance and cloud resource consumption across CI/CD runners',
+        'Drive company-wide adoption of automated End-to-End (E2E) testing suites to safeguard release confidence and eliminate regression risks'
       ]
     }
   ]
