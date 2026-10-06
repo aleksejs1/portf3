@@ -1,6 +1,6 @@
 ---
 import { experiences } from '../data/experience';
-import { Briefcase, Building2, MapPin, Sparkles, CheckCircle, HeartHandshake } from 'lucide-astro';
+import { Briefcase, Building2, MapPin, Sparkles, CheckCircle, HeartHandshake, ArrowUpRight, FileText } from 'lucide-astro';
 
 const leadershipRoles = experiences.filter(e => e.isLeadership);
 const engineeringRoles = experiences.filter(e => !e.isLeadership);
@@ -10,17 +10,29 @@ const engineeringRoles = experiences.filter(e => !e.isLeadership);
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
-    <div class="max-w-3xl mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700/80 text-xs font-mono text-zinc-300 mb-4">
-        <Briefcase class="w-3.5 h-3.5 text-indigo-400" />
-        Career Evolution
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700/80 text-xs font-mono text-zinc-300 mb-4">
+          <Briefcase class="w-3.5 h-3.5 text-indigo-400" />
+          Career Evolution
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          From Deep Backend Engineering to Technical Leadership.
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-zinc-400 leading-relaxed">
+          A deliberate progression: 10+ years of core banking and high-load backend engineering built an unbreakable foundation, followed by a dedicated shift into people leadership and organizational impact.
+        </p>
       </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-        From Deep Backend Engineering to Technical Leadership.
-      </h2>
-      <p class="mt-4 text-base sm:text-lg text-zinc-400 leading-relaxed">
-        A deliberate progression: 10+ years of core banking and high-load backend engineering built an unbreakable foundation, followed by a dedicated shift into people leadership and organizational impact.
-      </p>
+      <div class="shrink-0">
+        <a
+          href="/cv"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-indigo-500/60 text-zinc-300 hover:text-white font-mono text-xs transition-all shadow-sm group"
+        >
+          <FileText class="w-3.5 h-3.5 text-indigo-400 group-hover:scale-110 transition-transform" />
+          <span>Curriculum Vitae (PDF)</span>
+          <ArrowUpRight class="w-3.5 h-3.5 text-zinc-500 group-hover:text-indigo-300 transition-colors" />
+        </a>
+      </div>
     </div>
 
     <!-- Timeline Wrapper -->

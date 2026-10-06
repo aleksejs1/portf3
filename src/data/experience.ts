@@ -28,15 +28,16 @@ export const experiences: ExperienceItem[] = [
     location: 'Riga, Latvia',
     isLeadership: true,
     category: 'leadership',
-    summary: 'Leading engineering teams in high-scale IoT and fleet telematics. Championing people growth, delivery excellence, and pragmatic AI enablement to multiply team productivity while safeguarding engineering standards and team sustainability.',
+    summary: 'Leading engineering teams in high-scale IoT and fleet telematics. Championing people growth, cross-team platform standardization, and pragmatic AI enablement to multiply team delivery velocity while establishing organizational resilience and strict architectural guardrails.',
     highlights: [
-      'Pioneered pragmatic AI tooling and agentic workflows across the team, unlocking a multifold boost in delivery velocity while establishing clear architectural and code-review guardrails.',
-      'Empower and mentor software engineers through transparent 1-on-1s, structured career paths, and tailored growth plans — actively guarding against burnout in accelerated delivery environments.',
-      'Refine engineering rituals and delivery cadence, reducing cycle time while raising code quality, test coverage, and reliability.',
-      'Bridge business strategy with engineering execution, partnering with Product and Executive stakeholders on roadmaps.',
-      'Foster a culture of ownership, psychological safety, and continuous improvement across the engineering group.'
+      'Pioneered pragmatic AI tooling, agentic workflows, and custom domain-specific AI skills to automate routine team processes, multiplying delivery throughput while enforcing code-review and testing standards.',
+      'Empower and mentor software engineers through structured 1-on-1s and personalized career roadmaps; conduct IT department exit interviews to systematically diagnose organizational health and strengthen retention.',
+      'Drive cross-team platform standardization, consolidating fragmented architectural solutions into shared reusable systems and facilitating departmental RFC consensus forums.',
+      'Modernize SDLC and delivery platform: championed automated End-to-End (E2E) testing adoption, slashed FE build resource consumption in CI/CD, and established single-source-of-truth documentation rituals.',
+      'Bridge business strategy with engineering execution, partnering closely with Product and Executive leadership to steer roadmaps, balance trade-offs, and proactively prevent technical drift.',
+      'Foster psychological safety and a blameless culture, actively guarding against burnout in accelerated, high-throughput delivery environments.'
     ],
-    skills: ['People Leadership', 'Engineering Management', 'AI Team Enablement', 'Delivery & Agile', 'IoT & Telematics', 'Talent Growth', 'Tech Strategy']
+    skills: ['People Leadership', 'Cross-Team Standardization', 'SDLC Modernization', 'CI/CD & E2E Testing', 'AI Team Enablement', 'Architectural Governance', 'Tech Strategy', 'Talent Retention']
   },
   {
     period: '01.2022 — 03.2025',

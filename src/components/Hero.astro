@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import profilePhoto from '../assets/profile.jpg';
-import { ArrowDown, ArrowUpRight, Mail } from 'lucide-astro';
+import { ArrowDown, ArrowUpRight, Mail, FileText } from 'lucide-astro';
 import { yearsInTech, yearsInLeadership } from '../data/experience';
 ---
 
@@ -67,6 +67,13 @@ import { yearsInTech, yearsInLeadership } from '../data/experience';
             class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 text-zinc-200 font-medium text-sm transition-all hover:border-zinc-500"
           >
             Career Journey <ArrowDown class="w-4 h-4 text-zinc-400" />
+          </a>
+          <a
+            href="/cv"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700/80 hover:border-indigo-500/60 text-zinc-200 font-medium text-sm transition-all group"
+          >
+            <FileText class="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" />
+            Curriculum Vitae
           </a>
           <a
             href="#contact"
