@@ -169,7 +169,7 @@ export const cvData: CvData = {
       'Technical Architecture & Microservices, Pragmatic Modernization (PHP, Go, Cloud, CI/CD)'
     ],
     [
-      'Engineering Leadership (7 Direct Reports, 9 Teams), Cross-Functional Culture & Psych Safety',
+      'Engineering Leadership (7 Direct Reports), Cross-Team Alignment (9 Peer Teams), Psych Safety',
       'Strategic Tech Roadmaps, Delivery Predictability & Velocity, ROI & Tech Investment Prioritization',
       'Riga Tech Hub Site Leadership & Hiring, Mentorship, Executive & Cross-Functional Alignment'
     ]
@@ -180,7 +180,7 @@ export const cvData: CvData = {
       bullets: [
         {
           lead: 'Drive psychological safety',
-          text: 'and a blameless culture empowering high-trust engineering across 7 direct reports and 9 teams'
+          text: 'and a blameless culture, leading a high-trust engineering team of 7 direct reports'
         },
         {
           lead: 'Accelerate engineer growth',
@@ -231,7 +231,7 @@ export const cvData: CvData = {
       bullets: [
         {
           lead: 'Set architectural guardrails',
-          text: 'and maintain shared technical alignment across all 9 engineering teams'
+          text: 'and maintain shared technical alignment across all 9 peer engineering teams'
         },
         {
           lead: 'Balance product velocity',
