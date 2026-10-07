@@ -33,7 +33,7 @@ export interface CvExperienceItem {
 }
 
 export interface CvBullet {
-  anchor: string;
+  lead: string;
   text: string;
 }
 
@@ -179,16 +179,16 @@ export const cvData: CvData = {
       title: 'People Leadership & Culture',
       bullets: [
         {
-          anchor: 'Psychological Safety:',
-          text: 'Establish blameless culture empowering high-trust engineering across 7 direct reports and 9 cross-functional teams'
+          lead: 'Drive psychological safety',
+          text: 'and a blameless culture empowering high-trust engineering across 7 direct reports and 9 teams'
         },
         {
-          anchor: 'Career Growth:',
-          text: 'Drive engineer development via structured 1-on-1s, transparent career paths, and proactive burnout prevention'
+          lead: 'Accelerate engineer growth',
+          text: 'via structured 1-on-1s, transparent career paths, and proactive burnout prevention'
         },
         {
-          anchor: 'Retention & Exit Analysis:',
-          text: 'Conduct IT department exit interviews, analyzing feedback to systematically improve team retention'
+          lead: 'Conduct exit interviews',
+          text: 'across the IT department, analyzing feedback to systematically improve team retention'
         }
       ]
     },
@@ -196,16 +196,16 @@ export const cvData: CvData = {
       title: 'Applied AI & Innovation',
       bullets: [
         {
-          anchor: 'Agentic Workflows:',
-          text: 'Introduce practical AI tools and custom domain skills to eliminate repetitive engineering toil'
+          lead: 'Introduce practical AI tools',
+          text: 'and custom domain skills to eliminate repetitive engineering toil'
         },
         {
-          anchor: 'Hands-on Workshops:',
-          text: 'Upskill engineering teams in AI-assisted workflows, prompt engineering, and modern development tools'
+          lead: 'Lead hands-on workshops',
+          text: 'upskilling engineers in agentic workflows, prompt engineering, and modern AI tooling'
         },
         {
-          anchor: 'Rapid De-Risking:',
-          text: 'Build functional AI-assisted PoCs to test new architectures and validate feasibility before full commitments'
+          lead: 'Build rapid AI-assisted PoCs',
+          text: 'to test new architectures and validate feasibility before full commitments'
         }
       ]
     },
@@ -213,16 +213,16 @@ export const cvData: CvData = {
       title: 'Strategy, OKRs & Delivery',
       bullets: [
         {
-          anchor: 'Strategic Direction:',
-          text: 'Influence company-wide technical strategy and lead quarterly roadmap planning tied directly to business KPIs'
+          lead: 'Influence technical strategy',
+          text: 'and lead quarterly roadmap planning tied directly to business KPIs'
         },
         {
-          anchor: 'Team OKRs:',
-          text: 'Define team OKRs and delivery milestones, ensuring high focus, transparent velocity, and team accountability'
+          lead: 'Define team OKRs',
+          text: 'and delivery milestones, ensuring high focus, transparent velocity, and accountability'
         },
         {
-          anchor: 'Delivery Management:',
-          text: 'Manage end-to-end delivery: unblock dependencies, mitigate operational risks, and elevate system observability'
+          lead: 'Manage end-to-end delivery',
+          text: 'unblocking dependencies, mitigating operational risks, and elevating observability'
         }
       ]
     },
@@ -230,16 +230,16 @@ export const cvData: CvData = {
       title: 'Architecture & Standards',
       bullets: [
         {
-          anchor: 'Architecture Guardrails:',
-          text: 'Set technical standards and maintain shared architectural alignment across all 9 engineering teams'
+          lead: 'Set architectural guardrails',
+          text: 'and maintain shared technical alignment across all 9 engineering teams'
         },
         {
-          anchor: 'Resilience vs Velocity:',
-          text: 'Balance fast product delivery with platform resilience, tech debt reduction, and zero-downtime reliability'
+          lead: 'Balance product velocity',
+          text: 'with platform resilience, technical debt reduction, and zero-downtime reliability'
         },
         {
-          anchor: 'Platform Consolidation:',
-          text: 'Consolidate fragmented, team-isolated solutions into standardized shared platforms and services'
+          lead: 'Consolidate fragmented solutions',
+          text: 'into standardized, reusable shared platforms and services'
         }
       ]
     },
@@ -247,16 +247,16 @@ export const cvData: CvData = {
       title: 'Cross-Team Alignment & SDLC',
       bullets: [
         {
-          anchor: 'Product-Tech Partnership:',
-          text: 'Bridge communication between Product and Engineering on roadmaps, resource trade-offs, and tech priorities'
+          lead: 'Partner with Product leadership',
+          text: 'on roadmaps, resource trade-offs, and technical investment priorities'
         },
         {
-          anchor: 'Single Source of Truth:',
-          text: 'Modernize the SDLC and organize engineering architecture and documentation into centralized living knowledge'
+          lead: 'Modernize the SDLC',
+          text: 'and organize engineering architecture and documentation into a single source of truth'
         },
         {
-          anchor: 'Consensus via ADRs:',
-          text: 'Host cross-team architecture forums and implement Architecture Decision Records (ADRs) for collective alignment'
+          lead: 'Facilitate architecture forums',
+          text: 'and implement Architecture Decision Records (ADRs) for collective consensus'
         }
       ]
     },
@@ -264,16 +264,16 @@ export const cvData: CvData = {
       title: 'Platform, CI/CD & Quality Engineering',
       bullets: [
         {
-          anchor: 'CI/CD Transformation:',
-          text: 'Championed automated cloud CI/CD pipelines, resolving day-long manual frontend build merge locks across teams'
+          lead: 'Champion automated cloud CI/CD',
+          text: 'resolving day-long manual frontend build merge locks across teams'
         },
         {
-          anchor: 'Resource Optimization:',
-          text: 'Significantly optimized frontend build performance and cloud runner resource consumption to accelerate delivery'
+          lead: 'Optimize build performance',
+          text: 'and cloud runner resource consumption to accelerate deployment cadence'
         },
         {
-          anchor: 'Automated E2E Testing:',
-          text: 'Introduced automated End-to-End (E2E) testing rituals to prevent release regressions and protect release confidence'
+          lead: 'Introduce automated E2E testing',
+          text: 'rituals to prevent release regressions and protect release confidence'
         }
       ]
     }
