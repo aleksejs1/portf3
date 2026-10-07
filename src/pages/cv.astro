@@ -105,6 +105,12 @@ const initialMaponTenure = maponExperience
         }
 
         .cv-page-1 {
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          height: 278mm !important;
+          min-height: 278mm !important;
+          box-sizing: border-box !important;
           page-break-before: auto !important;
           break-before: auto !important;
           page-break-after: always !important;
@@ -114,6 +120,11 @@ const initialMaponTenure = maponExperience
         }
 
         .cv-page-2 {
+          display: flex !important;
+          flex-direction: column !important;
+          height: 278mm !important;
+          min-height: 278mm !important;
+          box-sizing: border-box !important;
           page-break-before: always !important;
           break-before: page !important;
           page-break-after: avoid !important;
@@ -178,7 +189,7 @@ const initialMaponTenure = maponExperience
         }
 
         .cv-qualities-section {
-          margin-top: 5mm !important;
+          margin-top: auto !important;
           padding-top: 3.5mm !important;
         }
 
@@ -194,7 +205,7 @@ const initialMaponTenure = maponExperience
         /* Page 2 Layout */
         .cv-page-2-header {
           padding-top: 2mm !important;
-          padding-bottom: 7mm !important;
+          padding-bottom: 8mm !important;
         }
 
         .cv-page-2-header svg {
@@ -209,8 +220,8 @@ const initialMaponTenure = maponExperience
         .cv-responsibilities-grid {
           display: grid !important;
           grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          column-gap: 8mm !important;
-          row-gap: 6.5mm !important;
+          column-gap: 12mm !important;
+          row-gap: 10mm !important;
         }
 
         .cv-resp-group {
@@ -221,7 +232,7 @@ const initialMaponTenure = maponExperience
         .cv-resp-title {
           font-size: 13.5px !important;
           line-height: 1.35 !important;
-          margin-bottom: 2mm !important;
+          margin-bottom: 2.5mm !important;
         }
 
         .cv-resp-list {
@@ -231,7 +242,7 @@ const initialMaponTenure = maponExperience
           margin: 0 !important;
           display: flex !important;
           flex-direction: column !important;
-          gap: 2.2mm !important;
+          gap: 2.8mm !important;
         }
 
         .cv-resp-item {
@@ -476,7 +487,7 @@ const initialMaponTenure = maponExperience
       <article class="cv-paper cv-page-2 flex flex-col justify-between" id="cv-page-2">
         <div>
           <!-- Header Area of Page 2 -->
-          <div class="cv-page-2-header text-center pt-2 pb-6">
+          <div class="cv-page-2-header text-center pt-2 pb-8">
             <CvEmblem />
             <CvChainLogo />
             <h2 class="cv-page-2-title cv-font-mono text-lg sm:text-xl font-bold text-zinc-900 tracking-tight mt-2">
@@ -485,7 +496,7 @@ const initialMaponTenure = maponExperience
           </div>
 
           <!-- Responsibilities 2-Column Grid (Row-aligned) -->
-          <div class="cv-responsibilities-grid grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-xs sm:text-[13px]">
+          <div class="cv-responsibilities-grid grid grid-cols-1 md:grid-cols-2 gap-x-10 sm:gap-x-12 gap-y-8 sm:gap-y-10 text-xs sm:text-[13px]">
             {[
               cvData.responsibilities[0], // Row 1, Col 1: People Leadership & Culture
               cvData.responsibilities[3], // Row 1, Col 2: Architecture & Standards
