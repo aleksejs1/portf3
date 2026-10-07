@@ -105,12 +105,9 @@ const initialMaponTenure = maponExperience
         }
 
         .cv-page-1 {
-          display: flex !important;
-          flex-direction: column !important;
-          justify-content: space-between !important;
-          height: 278mm !important;
-          min-height: 278mm !important;
-          box-sizing: border-box !important;
+          display: block !important;
+          height: auto !important;
+          min-height: auto !important;
           page-break-before: auto !important;
           break-before: auto !important;
           page-break-after: always !important;
@@ -144,10 +141,10 @@ const initialMaponTenure = maponExperience
         }
 
         .cv-contacts-section {
-          margin-top: 2.5mm !important;
-          margin-bottom: 4mm !important;
-          padding-top: 2.5mm !important;
-          padding-bottom: 2.5mm !important;
+          margin-top: 6mm !important;
+          margin-bottom: 6mm !important;
+          padding-top: 3mm !important;
+          padding-bottom: 3mm !important;
         }
 
         .cv-contacts-grid {
@@ -163,7 +160,7 @@ const initialMaponTenure = maponExperience
           display: grid !important;
           grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
           column-gap: 8mm !important;
-          margin-top: 3.5mm !important;
+          margin-top: 6mm !important;
         }
 
         .cv-education-col {
@@ -185,12 +182,12 @@ const initialMaponTenure = maponExperience
 
         .cv-education-col .cv-timeline-item,
         .cv-experience-col .cv-timeline-item {
-          margin-bottom: 3.2mm !important;
+          margin-bottom: 3.5mm !important;
         }
 
         .cv-qualities-section {
-          margin-top: auto !important;
-          padding-top: 3.5mm !important;
+          margin-top: 6mm !important;
+          padding-top: 4mm !important;
         }
 
         .cv-qualities-grid {
@@ -304,149 +301,147 @@ const initialMaponTenure = maponExperience
     <!-- Main CV Sheet Container -->
     <main class="py-6 sm:py-10 px-2 sm:px-4">
       <!-- ================= PAGE 1 ================= -->
-      <article class="cv-paper cv-page-1 flex flex-col justify-between" id="cv-page-1">
-        <div>
-          <!-- Header Area -->
-          <div class="cv-page-1-header text-center pt-1 pb-2">
-            <CvEmblem />
-            <h1 class="cv-font-mono text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 mt-1">
-              Curriculum Vitae
-            </h1>
-            <CvChainLogo />
-            <h2 class="cv-font-mono text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight mt-1">
-              {cvData.personal.name}
-            </h2>
-            <p class="cv-font-mono text-xs sm:text-[13px] font-semibold text-zinc-900 tracking-tight mt-1">
-              {cvData.personal.title}
-            </p>
-            <p class="cv-font-sans text-xs sm:text-[12px] text-zinc-600 mt-0.5">
-              {cvData.personal.subtitle}
-            </p>
-          </div>
+      <article class="cv-paper cv-page-1 flex flex-col" id="cv-page-1">
+        <!-- Header Area -->
+        <div class="cv-page-1-header text-center pt-1 pb-2">
+          <CvEmblem />
+          <h1 class="cv-font-mono text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 mt-1">
+            Curriculum Vitae
+          </h1>
+          <CvChainLogo />
+          <h2 class="cv-font-mono text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight mt-1">
+            {cvData.personal.name}
+          </h2>
+          <p class="cv-font-mono text-xs sm:text-[13px] font-semibold text-zinc-900 tracking-tight mt-1">
+            {cvData.personal.title}
+          </p>
+          <p class="cv-font-sans text-xs sm:text-[12px] text-zinc-600 mt-0.5">
+            {cvData.personal.subtitle}
+          </p>
+        </div>
 
-          <!-- Contacts Section -->
-          <section class="cv-contacts-section mt-1.5 mb-3 border-t border-b border-zinc-300/80 py-2">
-            <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-1 text-center sm:text-left">
-              Contacts
-            </h3>
-            <div class="cv-contacts-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 text-xs sm:text-[13px] cv-font-mono text-zinc-800">
-              <div class="flex items-center gap-1.5">
-                <span class="font-bold text-zinc-900 min-w-[82px]">Email:</span>
-                <a
-                  href={`mailto:${cvData.personal.contacts.email}`}
-                  class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
-                >
-                  {cvData.personal.contacts.email}
-                </a>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="font-bold text-zinc-900 min-w-[82px]">Phone:</span>
-                <a
-                  href={`tel:${cvData.personal.contacts.phone.replace(/\s+/g, '')}`}
-                  class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
-                >
-                  {cvData.personal.contacts.phone}
-                </a>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="font-bold text-zinc-900 min-w-[82px]">LinkedIn:</span>
-                <a
-                  href={cvData.personal.contacts.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
-                >
-                  {cvData.personal.contacts.linkedin}
-                </a>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <span class="font-bold text-zinc-900 min-w-[82px]">Portfolio:</span>
-                <a
-                  href={cvData.personal.contacts.portfolioUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
-                >
-                  {cvData.personal.contacts.portfolio}
-                </a>
-              </div>
+        <!-- Contacts Section -->
+        <section class="cv-contacts-section mt-6 mb-6 border-t border-b border-zinc-300/80 py-3">
+          <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-1 text-center sm:text-left">
+            Contacts
+          </h3>
+          <div class="cv-contacts-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 text-xs sm:text-[13px] cv-font-mono text-zinc-800">
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-zinc-900 min-w-[82px]">Email:</span>
+              <a
+                href={`mailto:${cvData.personal.contacts.email}`}
+                class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+              >
+                {cvData.personal.contacts.email}
+              </a>
             </div>
-          </section>
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-zinc-900 min-w-[82px]">Phone:</span>
+              <a
+                href={`tel:${cvData.personal.contacts.phone.replace(/\s+/g, '')}`}
+                class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+              >
+                {cvData.personal.contacts.phone}
+              </a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-zinc-900 min-w-[82px]">LinkedIn:</span>
+              <a
+                href={cvData.personal.contacts.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+              >
+                {cvData.personal.contacts.linkedin}
+              </a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-zinc-900 min-w-[82px]">Portfolio:</span>
+              <a
+                href={cvData.personal.contacts.portfolioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+              >
+                {cvData.personal.contacts.portfolio}
+              </a>
+            </div>
+          </div>
+        </section>
 
-          <!-- 2 Columns: Education (Left) & Work Experience (Right) -->
-          <div class="cv-timeline-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mt-3.5">
-            <!-- Left Column: Education -->
-            <section class="cv-education-col">
-              <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2.5 border-b border-zinc-200 pb-1">
-                Education
-              </h3>
-              <div class="space-y-3.5 text-xs sm:text-[13px]">
-                {cvData.education.map((item) => (
-                  <div class="cv-timeline-item space-y-0.5">
-                    <p class="italic text-zinc-800 leading-tight cv-font-mono">
-                      <span class="text-zinc-600 mr-1">↬</span>
-                      <span>{item.period} {item.institution}</span>
-                    </p>
-                    <p class="cv-font-sans text-zinc-800 font-normal pl-4 leading-tight">
-                      {item.degree}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <!-- Right Column: Work experience -->
-            <section class="cv-experience-col">
-              <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2.5 border-b border-zinc-200 pb-1">
-                Work experience
-              </h3>
-              <div class="space-y-3.5 text-xs sm:text-[13px]">
-                {/* 1. AS Mapon - Dynamic tenure */}
+        <!-- 2 Columns: Education (Left) & Work Experience (Right) -->
+        <div class="cv-timeline-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mt-6">
+          <!-- Left Column: Education -->
+          <section class="cv-education-col">
+            <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2.5 border-b border-zinc-200 pb-1">
+              Education
+            </h3>
+            <div class="space-y-3.5 text-xs sm:text-[13px]">
+              {cvData.education.map((item) => (
                 <div class="cv-timeline-item space-y-0.5">
                   <p class="italic text-zinc-800 leading-tight cv-font-mono">
                     <span class="text-zinc-600 mr-1">↬</span>
-                    <span>Since Mar. 2025</span>{' '}
-                    <span
-                      id="mapon-tenure"
-                      data-start-year={maponExperience?.startYear}
-                      data-start-month={maponExperience?.startMonth}
-                      class="text-zinc-700"
-                    >
-                      ({initialMaponTenure})
-                    </span>
+                    <span>{item.period} {item.institution}</span>
                   </p>
-                  <p class="font-bold text-zinc-900 pl-4 cv-font-mono leading-tight">
-                    AS Mapon
-                  </p>
-                  <p class="italic text-zinc-700 pl-4 cv-font-sans leading-tight">
-                    {maponExperience?.role || 'Engineering Manager'}
+                  <p class="cv-font-sans text-zinc-800 font-normal pl-4 leading-tight">
+                    {item.degree}
                   </p>
                 </div>
+              ))}
+            </div>
+          </section>
 
-                {/* Other work experiences */}
-                {cvData.experience
-                  .filter((e) => !e.isCurrent)
-                  .map((item) => (
-                    <div class="cv-timeline-item space-y-0.5">
-                      <p class="italic text-zinc-800 leading-tight cv-font-mono">
-                        <span class="text-zinc-600 mr-1">↬</span>
-                        <span>{item.periodText}</span>
-                      </p>
-                      <p class="font-bold text-zinc-900 pl-4 cv-font-mono leading-tight">
-                        {item.company}
-                      </p>
-                      <p class="italic text-zinc-700 pl-4 cv-font-sans leading-tight">
-                        {item.role}
-                      </p>
-                    </div>
-                  ))}
+          <!-- Right Column: Work experience -->
+          <section class="cv-experience-col">
+            <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2.5 border-b border-zinc-200 pb-1">
+              Work experience
+            </h3>
+            <div class="space-y-3.5 text-xs sm:text-[13px]">
+              {/* 1. AS Mapon - Dynamic tenure */}
+              <div class="cv-timeline-item space-y-0.5">
+                <p class="italic text-zinc-800 leading-tight cv-font-mono">
+                  <span class="text-zinc-600 mr-1">↬</span>
+                  <span>Since Mar. 2025</span>{' '}
+                  <span
+                    id="mapon-tenure"
+                    data-start-year={maponExperience?.startYear}
+                    data-start-month={maponExperience?.startMonth}
+                    class="text-zinc-700"
+                  >
+                    ({initialMaponTenure})
+                  </span>
+                </p>
+                <p class="font-bold text-zinc-900 pl-4 cv-font-mono leading-tight">
+                  AS Mapon
+                </p>
+                <p class="italic text-zinc-700 pl-4 cv-font-sans leading-tight">
+                  {maponExperience?.role || 'Engineering Manager'}
+                </p>
               </div>
-            </section>
-          </div>
+
+              {/* Other work experiences */}
+              {cvData.experience
+                .filter((e) => !e.isCurrent)
+                .map((item) => (
+                  <div class="cv-timeline-item space-y-0.5">
+                    <p class="italic text-zinc-800 leading-tight cv-font-mono">
+                      <span class="text-zinc-600 mr-1">↬</span>
+                      <span>{item.periodText}</span>
+                    </p>
+                    <p class="font-bold text-zinc-900 pl-4 cv-font-mono leading-tight">
+                      {item.company}
+                    </p>
+                    <p class="italic text-zinc-700 pl-4 cv-font-sans leading-tight">
+                      {item.role}
+                    </p>
+                  </div>
+                ))}
+            </div>
+          </section>
         </div>
 
         <!-- Experience and Qualities (Bottom of Page 1) -->
-        <section class="cv-qualities-section mt-5 pt-3.5 border-t border-zinc-300/80">
+        <section class="cv-qualities-section mt-6 pt-4 border-t border-zinc-300/80">
           <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2.5 text-center sm:text-left">
             Experience and Qualities
           </h3>
