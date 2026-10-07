@@ -9,6 +9,7 @@ export interface CvContactInfo {
 
 export interface CvPersonalInfo {
   name: string;
+  title: string;
   subtitle: string;
   contacts: CvContactInfo;
 }
@@ -31,13 +32,14 @@ export interface CvExperienceItem {
   role: string;
 }
 
-export interface CvSkillColumn {
-  items: string[];
+export interface CvBullet {
+  anchor: string;
+  text: string;
 }
 
 export interface CvResponsibilityGroup {
   title: string;
-  bullets: string[];
+  bullets: CvBullet[];
 }
 
 export interface CvData {
@@ -82,7 +84,8 @@ export function calculateTenure(
 export const cvData: CvData = {
   personal: {
     name: 'Aleksejs Kovaļovs',
-    subtitle: 'Born on May 16, 1990 in Riga ❤',
+    title: 'CTO / VP of Engineering Candidate · 15+ Years Experience',
+    subtitle: 'Riga, Latvia · Born in 1990 (Age 36)',
     contacts: {
       email: 'aleks4444@inbox.lv',
       phone: '+371 26185369',
@@ -99,14 +102,14 @@ export const cvData: CvData = {
       degree: 'Master’s degree in Information Systems'
     },
     {
-      period: '2011',
-      institution: 'Institute of Transport and Telecommunications',
-      degree: 'IT Project Management qualification course'
-    },
-    {
       period: '2009-2013',
       institution: 'Institute of Transport and Telecommunications',
       degree: 'Bachelor’s degree in Electrical Engineering'
+    },
+    {
+      period: '2011',
+      institution: 'Institute of Transport and Telecommunications',
+      degree: 'IT Project Management qualification course'
     }
   ],
   experience: [
@@ -136,7 +139,7 @@ export const cvData: CvData = {
       endMonth: 5,
       periodText: 'Sep. 2020 – May 2026 (5 years 8 months)',
       company: 'Biedrība Zārdi',
-      role: 'Member of the Board'
+      role: 'Member of the Board (Civic Leadership / Non-Profit)'
     },
     {
       id: 'inbox-php',
@@ -161,63 +164,117 @@ export const cvData: CvData = {
   ],
   qualities: [
     [
-      'Core Banking & Payments Reliability, High-Load Distributed Architecture, Zero-Downtime SLAs',
+      'Core Banking Reliability & 400,000+ IoT Real-Time Devices, Distributed High-Load Architecture',
       'Operational Excellence, Incident Response & On-Call Rituals, Security & Compliance, Observability',
-      'Technical Architecture & Microservices, Pragmatic Tech Modernization (PHP, Go, Cloud, CI/CD)'
+      'Technical Architecture & Microservices, Pragmatic Modernization (PHP, Go, Cloud, CI/CD)'
     ],
     [
-      'Engineering Leadership, Scaling Cross-Functional Agile Teams, High-Performance Culture',
+      'Engineering Leadership (7 Direct Reports, 9 Teams), Cross-Functional Culture & Psych Safety',
       'Strategic Tech Roadmaps, Delivery Predictability & Velocity, ROI & Tech Investment Prioritization',
-      'Riga Tech Hub Site Leadership & Hiring, Mentorship, Executive & Cross-Functional Communication'
+      'Riga Tech Hub Site Leadership & Hiring, Mentorship, Executive & Cross-Functional Alignment'
     ]
   ],
   responsibilities: [
     {
       title: 'People Leadership & Culture',
       bullets: [
-        'Establish psychological safety and a blameless culture empowering high-trust engineering',
-        'Drive engineer growth via structured 1-on-1s, tailored career paths, and burnout prevention',
-        'Conduct IT department exit interviews and analyze feedback to improve team retention'
+        {
+          anchor: 'Psychological Safety:',
+          text: 'Establish blameless culture empowering high-trust engineering across 7 direct reports and 9 cross-functional teams'
+        },
+        {
+          anchor: 'Career Growth:',
+          text: 'Drive engineer development via structured 1-on-1s, transparent career paths, and proactive burnout prevention'
+        },
+        {
+          anchor: 'Retention & Exit Analysis:',
+          text: 'Conduct IT department exit interviews, analyzing feedback to systematically improve team retention'
+        }
       ]
     },
     {
       title: 'Applied AI & Innovation',
       bullets: [
-        'Introduce practical AI tools and custom skills to automate routine team tasks',
-        'Lead hands-on workshops upskilling engineers in agentic workflows and modern AI tooling',
-        'Build rapid AI-assisted PoCs to test new architectures and validate technical ideas'
+        {
+          anchor: 'Agentic Workflows:',
+          text: 'Introduce practical AI tools and custom domain skills to eliminate repetitive engineering toil'
+        },
+        {
+          anchor: 'Hands-on Workshops:',
+          text: 'Upskill engineering teams in AI-assisted workflows, prompt engineering, and modern development tools'
+        },
+        {
+          anchor: 'Rapid De-Risking:',
+          text: 'Build functional AI-assisted PoCs to test new architectures and validate feasibility before full commitments'
+        }
       ]
     },
     {
       title: 'Strategy, OKRs & Delivery',
       bullets: [
-        'Influence technical direction and lead quarterly roadmap planning aligned with business goals',
-        'Define team OKRs and clear delivery goals to drive focus and accountability',
-        'Manage project delivery: track team velocity, remove blockers, and improve system observability'
+        {
+          anchor: 'Strategic Direction:',
+          text: 'Influence company-wide technical strategy and lead quarterly roadmap planning tied directly to business KPIs'
+        },
+        {
+          anchor: 'Team OKRs:',
+          text: 'Define team OKRs and delivery milestones, ensuring high focus, transparent velocity, and team accountability'
+        },
+        {
+          anchor: 'Delivery Management:',
+          text: 'Manage end-to-end delivery: unblock dependencies, mitigate operational risks, and elevate system observability'
+        }
       ]
     },
     {
       title: 'Architecture & Standards',
       bullets: [
-        'Set architectural standards and keep projects aligned with the technical vision',
-        'Balance fast feature delivery with system stability and technical debt reduction',
-        'Consolidate fragmented, team-isolated solutions into standardized, reusable platforms'
+        {
+          anchor: 'Architecture Guardrails:',
+          text: 'Set technical standards and maintain shared architectural alignment across all 9 engineering teams'
+        },
+        {
+          anchor: 'Resilience vs Velocity:',
+          text: 'Balance fast product delivery with platform resilience, tech debt reduction, and zero-downtime reliability'
+        },
+        {
+          anchor: 'Platform Consolidation:',
+          text: 'Consolidate fragmented, team-isolated solutions into standardized shared platforms and services'
+        }
       ]
     },
     {
       title: 'Cross-Team Alignment & SDLC',
       bullets: [
-        'Bridge communication between Product and Engineering leadership on roadmaps and trade-offs',
-        'Modernize the SDLC and organize engineering documentation into a single source of truth',
-        'Host cross-team architecture discussions and use ADRs to make collective decisions'
+        {
+          anchor: 'Product-Tech Partnership:',
+          text: 'Bridge communication between Product and Engineering on roadmaps, resource trade-offs, and tech priorities'
+        },
+        {
+          anchor: 'Single Source of Truth:',
+          text: 'Modernize the SDLC and organize engineering architecture and documentation into centralized living knowledge'
+        },
+        {
+          anchor: 'Consensus via ADRs:',
+          text: 'Host cross-team architecture forums and implement Architecture Decision Records (ADRs) for collective alignment'
+        }
       ]
     },
     {
       title: 'Platform, CI/CD & Quality Engineering',
       bullets: [
-        'Improve CI/CD pipelines to speed up delivery cadence from commit to production',
-        'Significantly optimize frontend build performance and cloud runner resource consumption',
-        'Introduce automated End-to-End (E2E) testing to prevent bugs and release regressions'
+        {
+          anchor: 'CI/CD Transformation:',
+          text: 'Championed automated cloud CI/CD pipelines, resolving day-long manual frontend build merge locks across teams'
+        },
+        {
+          anchor: 'Resource Optimization:',
+          text: 'Significantly optimized frontend build performance and cloud runner resource consumption to accelerate delivery'
+        },
+        {
+          anchor: 'Automated E2E Testing:',
+          text: 'Introduced automated End-to-End (E2E) testing rituals to prevent release regressions and protect release confidence'
+        }
       ]
     }
   ]
