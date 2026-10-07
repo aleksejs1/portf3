@@ -210,13 +210,7 @@ const initialMaponTenure = maponExperience
           display: grid !important;
           grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
           column-gap: 8mm !important;
-          row-gap: 7mm !important;
-        }
-
-        .cv-resp-col {
-          display: flex !important;
-          flex-direction: column !important;
-          gap: 7mm !important;
+          row-gap: 6.5mm !important;
         }
 
         .cv-resp-group {
@@ -487,45 +481,30 @@ const initialMaponTenure = maponExperience
             </h2>
           </div>
 
-          <!-- Responsibilities 2-Column Grid -->
+          <!-- Responsibilities 2-Column Grid (Row-aligned) -->
           <div class="cv-responsibilities-grid grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-xs sm:text-[13px]">
-            <!-- Column 1: Groups 1, 2, 3 -->
-            <div class="cv-resp-col space-y-6">
-              {cvData.responsibilities.slice(0, 3).map((group) => (
-                <div class="cv-resp-group space-y-2">
-                  <h3 class="cv-resp-title cv-font-mono font-bold text-zinc-900 italic text-[13.5px] sm:text-[14px]">
-                    {group.title}
-                  </h3>
-                  <ul class="cv-resp-list list-none pl-0 space-y-2">
-                    {group.bullets.map((bullet) => (
-                      <li class="cv-resp-item list-none flex items-start gap-2.5 leading-relaxed">
-                        <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5 select-none">❖</span>
-                        <span class="italic text-zinc-800 cv-font-mono">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <!-- Column 2: Groups 4, 5, 6 -->
-            <div class="cv-resp-col space-y-6">
-              {cvData.responsibilities.slice(3, 6).map((group) => (
-                <div class="cv-resp-group space-y-2">
-                  <h3 class="cv-resp-title cv-font-mono font-bold text-zinc-900 italic text-[13.5px] sm:text-[14px]">
-                    {group.title}
-                  </h3>
-                  <ul class="cv-resp-list list-none pl-0 space-y-2">
-                    {group.bullets.map((bullet) => (
-                      <li class="cv-resp-item list-none flex items-start gap-2.5 leading-relaxed">
-                        <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5 select-none">❖</span>
-                        <span class="italic text-zinc-800 cv-font-mono">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            {[
+              cvData.responsibilities[0], // Row 1, Col 1: People Leadership & Culture
+              cvData.responsibilities[3], // Row 1, Col 2: Architecture & Standards
+              cvData.responsibilities[1], // Row 2, Col 1: Applied AI & Innovation
+              cvData.responsibilities[4], // Row 2, Col 2: Cross-Team Alignment & SDLC
+              cvData.responsibilities[2], // Row 3, Col 1: Strategy, OKRs & Delivery
+              cvData.responsibilities[5], // Row 3, Col 2: Platform, CI/CD & Quality Engineering
+            ].map((group) => (
+              <div class="cv-resp-group space-y-2">
+                <h3 class="cv-resp-title cv-font-mono font-bold text-zinc-900 italic text-[13.5px] sm:text-[14px]">
+                  {group.title}
+                </h3>
+                <ul class="cv-resp-list list-none pl-0 space-y-2">
+                  {group.bullets.map((bullet) => (
+                    <li class="cv-resp-item list-none flex items-start gap-2.5 leading-relaxed">
+                      <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5 select-none">❖</span>
+                      <span class="italic text-zinc-800 cv-font-mono">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
