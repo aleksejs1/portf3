@@ -2,10 +2,10 @@
 import '../styles/global.css';
 import CvEmblem from '../components/cv/CvEmblem.astro';
 import CvChainLogo from '../components/cv/CvChainLogo.astro';
-import { cvData, calculateTenure } from '../data/cv';
+import { cv2Data, calculateTenure } from '../data/cv2';
 
 // Compute initial SSR tenure for static rendering
-const maponExperience = cvData.experience.find((e) => e.id === 'mapon');
+const maponExperience = cv2Data.experience.find((e) => e.id === 'mapon');
 const initialMaponTenure = maponExperience
   ? calculateTenure(maponExperience.startYear, maponExperience.startMonth)
   : '1 year 7 months';
@@ -17,9 +17,12 @@ const initialMaponTenure = maponExperience
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Curriculum Vitae — Aleksejs Kovaļovs</title>
+    <title>Curriculum Vitae — Aleksejs Kovaļovs (Head of IT & Business Technology)</title>
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="description" content="Curriculum Vitae of Aleksejs Kovaļovs — Engineering Leader & CTO Candidate" />
+    <meta
+      name="description"
+      content="Curriculum Vitae of Aleksejs Kovaļovs — Head of IT & Business Technology Candidate"
+    />
 
     <!-- Typography Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -274,13 +277,13 @@ const initialMaponTenure = maponExperience
             kovalovs.lv
           </a>
           <span class="text-zinc-600">|</span>
-          <span class="text-xs font-medium text-zinc-300">Executive CV</span>
+          <span class="text-xs font-medium text-zinc-200">Head of IT &amp; Business Technology</span>
           <a
-            href="/cv2"
-            class="text-[11px] font-mono text-amber-400 hover:text-amber-300 bg-zinc-800/80 hover:bg-zinc-700/80 px-2 py-0.5 rounded border border-zinc-700/60 transition-colors"
-            title="Switch to Head of IT & Business Technology CV"
+            href="/cv"
+            class="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 bg-zinc-800/80 hover:bg-zinc-700/80 px-2 py-0.5 rounded border border-zinc-700/60 transition-colors"
+            title="Switch to CTO / VP of Engineering CV"
           >
-            Head of IT Edition →
+            CTO Edition →
           </a>
           <span class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -317,13 +320,13 @@ const initialMaponTenure = maponExperience
           </h1>
           <CvChainLogo />
           <h2 class="cv-font-mono text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight mt-1">
-            {cvData.personal.name}
+            {cv2Data.personal.name}
           </h2>
           <p class="cv-font-mono text-xs sm:text-[13px] font-semibold text-zinc-900 tracking-tight mt-1">
-            {cvData.personal.title}
+            {cv2Data.personal.title}
           </p>
           <p class="cv-font-sans text-xs sm:text-[12px] text-zinc-600 mt-0.5">
-            {cvData.personal.subtitle}
+            {cv2Data.personal.subtitle}
           </p>
         </div>
 
@@ -336,41 +339,41 @@ const initialMaponTenure = maponExperience
             <div class="flex items-center gap-1.5">
               <span class="font-bold text-zinc-900 min-w-[82px]">Email:</span>
               <a
-                href={`mailto:${cvData.personal.contacts.email}`}
+                href={`mailto:${cv2Data.personal.contacts.email}`}
                 class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
               >
-                {cvData.personal.contacts.email}
+                {cv2Data.personal.contacts.email}
               </a>
             </div>
             <div class="flex items-center gap-1.5">
               <span class="font-bold text-zinc-900 min-w-[82px]">Phone:</span>
               <a
-                href={`tel:${cvData.personal.contacts.phone.replace(/\s+/g, '')}`}
+                href={`tel:${cv2Data.personal.contacts.phone.replace(/\s+/g, '')}`}
                 class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
               >
-                {cvData.personal.contacts.phone}
+                {cv2Data.personal.contacts.phone}
               </a>
             </div>
             <div class="flex items-center gap-1.5">
               <span class="font-bold text-zinc-900 min-w-[82px]">LinkedIn:</span>
               <a
-                href={cvData.personal.contacts.linkedinUrl}
+                href={cv2Data.personal.contacts.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
               >
-                {cvData.personal.contacts.linkedin}
+                {cv2Data.personal.contacts.linkedin}
               </a>
             </div>
             <div class="flex items-center gap-1.5">
               <span class="font-bold text-zinc-900 min-w-[82px]">Portfolio:</span>
               <a
-                href={cvData.personal.contacts.portfolioUrl}
+                href={cv2Data.personal.contacts.portfolioUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
               >
-                {cvData.personal.contacts.portfolio}
+                {cv2Data.personal.contacts.portfolio}
               </a>
             </div>
           </div>
@@ -384,7 +387,7 @@ const initialMaponTenure = maponExperience
               Education
             </h3>
             <div class="space-y-3.5 text-xs sm:text-[13px]">
-              {cvData.education.map((item) => (
+              {cv2Data.education.map((item) => (
                 <div class="cv-timeline-item space-y-0.5">
                   <p class="italic text-zinc-800 leading-tight cv-font-mono">
                     <span class="text-zinc-600 mr-1">↬</span>
@@ -427,7 +430,7 @@ const initialMaponTenure = maponExperience
               </div>
 
               {/* Other work experiences */}
-              {cvData.experience
+              {cv2Data.experience
                 .filter((e) => !e.isCurrent)
                 .map((item) => (
                   <div class="cv-timeline-item space-y-0.5">
@@ -455,7 +458,7 @@ const initialMaponTenure = maponExperience
           <div class="cv-qualities-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs sm:text-[13px] cv-font-mono">
             <!-- Column 1 -->
             <div class="space-y-3">
-              {cvData.qualities[0].map((item) => (
+              {cv2Data.qualities[0].map((item) => (
                 <div class="flex items-start gap-1.5 leading-snug">
                   <span class="text-emerald-700 font-bold shrink-0">✓</span>
                   <span class="text-zinc-800">{item}</span>
@@ -465,7 +468,7 @@ const initialMaponTenure = maponExperience
 
             <!-- Column 2 -->
             <div class="space-y-3">
-              {cvData.qualities[1].map((item) => (
+              {cv2Data.qualities[1].map((item) => (
                 <div class="flex items-start gap-1.5 leading-snug">
                   <span class="text-emerald-700 font-bold shrink-0">✓</span>
                   <span class="text-zinc-800">{item}</span>
@@ -500,12 +503,12 @@ const initialMaponTenure = maponExperience
           <!-- Responsibilities 2-Column Grid (Row-aligned) -->
           <div class="cv-responsibilities-grid grid grid-cols-1 md:grid-cols-2 gap-x-10 sm:gap-x-12 gap-y-8 sm:gap-y-10 text-xs sm:text-[13px]">
             {[
-              cvData.responsibilities[0], // Row 1, Col 1: People Leadership & Culture
-              cvData.responsibilities[3], // Row 1, Col 2: Architecture & Standards
-              cvData.responsibilities[1], // Row 2, Col 1: Applied AI & Innovation
-              cvData.responsibilities[4], // Row 2, Col 2: Cross-Team Alignment & SDLC
-              cvData.responsibilities[2], // Row 3, Col 1: Strategy, OKRs & Delivery
-              cvData.responsibilities[5], // Row 3, Col 2: Platform, CI/CD & Quality Engineering
+              cv2Data.responsibilities[0],
+              cv2Data.responsibilities[3],
+              cv2Data.responsibilities[1],
+              cv2Data.responsibilities[4],
+              cv2Data.responsibilities[2],
+              cv2Data.responsibilities[5],
             ].map((group) => (
               <div class="cv-resp-group space-y-2">
                 <h3 class="cv-resp-title cv-font-mono font-bold text-zinc-900 italic text-[13.5px] sm:text-[14px]">
@@ -526,7 +529,6 @@ const initialMaponTenure = maponExperience
             ))}
           </div>
         </div>
-
       </article>
     </main>
 
