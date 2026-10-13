@@ -1,0 +1,597 @@
+---
+import '../styles/global.css';
+import CvEmblem from '../components/cv/CvEmblem.astro';
+import CvChainLogo from '../components/cv/CvChainLogo.astro';
+import { cv3Data, calculateTenure } from '../data/cv3';
+
+// Compute initial SSR tenure for static rendering
+const maponExperience = cv3Data.experience.find((e) => e.id === 'mapon');
+const initialMaponTenure = maponExperience
+  ? calculateTenure(maponExperience.startYear, maponExperience.startMonth)
+  : '1 year 7 months';
+---
+
+<!doctype html>
+<html lang="en" class="bg-zinc-950 text-zinc-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Curriculum Vitae — Aleksejs Kovaļovs (Director of AI Development)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Curriculum Vitae of Aleksejs Kovaļovs — Director of AI Development & Engineering Leader Candidate"
+    />
+
+    <!-- Typography Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style is:global>
+      /* Base font styles for CV paper sheets */
+      .cv-font-mono {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      .cv-font-sans {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+
+      /* Screen paper presentation */
+      @media screen {
+        .cv-paper {
+          width: 100%;
+          max-width: 210mm;
+          min-height: 297mm;
+          background-color: #f7f9f6;
+          color: #18181b;
+          box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+          border-radius: 2px;
+          padding: 10mm 15mm;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 2rem;
+        }
+      }
+
+      /* High-fidelity Print & PDF layout */
+      @page {
+        size: A4 portrait;
+        margin: 8mm 12mm 8mm 12mm;
+      }
+
+      @media print {
+        *,
+        *::before,
+        *::after {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        /* Base typography in print */
+        html,
+        body {
+          background: #ffffff !important;
+          color: #18181b !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
+          font-size: 12px !important;
+        }
+
+        .no-print {
+          display: none !important;
+        }
+
+        main {
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 100% !important;
+        }
+
+        .cv-paper {
+          box-shadow: none !important;
+          border: none !important;
+          border-radius: 0 !important;
+          background-color: #ffffff !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          max-width: 100% !important;
+          width: 100% !important;
+          min-height: auto !important;
+          height: auto !important;
+          display: block !important;
+        }
+
+        .cv-page-1 {
+          display: block !important;
+          height: auto !important;
+          min-height: auto !important;
+          page-break-before: auto !important;
+          break-before: auto !important;
+          page-break-after: always !important;
+          break-after: page !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        .cv-page-2 {
+          display: flex !important;
+          flex-direction: column !important;
+          height: 278mm !important;
+          min-height: 278mm !important;
+          box-sizing: border-box !important;
+          page-break-before: always !important;
+          break-before: page !important;
+          page-break-after: avoid !important;
+          break-after: avoid !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Page 1 Grids & Spacings */
+        .cv-page-1-header {
+          padding-top: 1mm !important;
+          padding-bottom: 3.5mm !important;
+        }
+
+        .cv-page-1-header svg {
+          max-height: 32px !important;
+        }
+
+        .cv-contacts-section {
+          margin-top: 6mm !important;
+          margin-bottom: 6mm !important;
+          padding-top: 3mm !important;
+          padding-bottom: 3mm !important;
+        }
+
+        .cv-contacts-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          column-gap: 8mm !important;
+          row-gap: 2mm !important;
+          font-size: 12px !important;
+          line-height: 1.45 !important;
+        }
+
+        .cv-timeline-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          column-gap: 8mm !important;
+          margin-top: 6mm !important;
+        }
+
+        .cv-education-col {
+          grid-column: 1 / 2 !important;
+        }
+
+        .cv-experience-col {
+          grid-column: 2 / 3 !important;
+        }
+
+        .cv-timeline-item {
+          font-size: 11.5px !important;
+          line-height: 1.4 !important;
+        }
+
+        .cv-timeline-item p {
+          margin-bottom: 0.5mm !important;
+        }
+
+        .cv-education-col .cv-timeline-item,
+        .cv-experience-col .cv-timeline-item {
+          margin-bottom: 3.5mm !important;
+        }
+
+        .cv-qualities-section {
+          margin-top: 6mm !important;
+          padding-top: 4mm !important;
+        }
+
+        .cv-qualities-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          column-gap: 8mm !important;
+          row-gap: 3mm !important;
+          font-size: 11.8px !important;
+          line-height: 1.45 !important;
+        }
+
+        /* Page 2 Layout */
+        .cv-page-2-header {
+          padding-top: 2mm !important;
+          padding-bottom: 8mm !important;
+        }
+
+        .cv-page-2-header svg {
+          max-height: 34px !important;
+        }
+
+        .cv-page-2-title {
+          font-size: 17px !important;
+          margin-top: 2.5mm !important;
+        }
+
+        .cv-responsibilities-grid {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          column-gap: 12mm !important;
+          row-gap: 10mm !important;
+        }
+
+        .cv-resp-group {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        .cv-resp-title {
+          font-size: 13.5px !important;
+          line-height: 1.35 !important;
+          margin-bottom: 2.5mm !important;
+        }
+
+        .cv-resp-list {
+          list-style: none !important;
+          list-style-type: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 2.8mm !important;
+        }
+
+        .cv-resp-item {
+          list-style: none !important;
+          list-style-type: none !important;
+          font-size: 12px !important;
+          line-height: 1.55 !important;
+          font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+        }
+
+        .cv-resp-item strong {
+          font-weight: 700 !important;
+          font-style: normal !important;
+        }
+
+        .cv-resp-item span.italic {
+          font-style: italic !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
+    <!-- Sticky Screen Action Toolbar (hidden when printed) -->
+    <header class="no-print print:hidden sticky top-0 z-50 bg-zinc-900/90 backdrop-blur-md border-b border-zinc-800/80 px-4 py-3 shadow-lg">
+      <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <a
+            href="/"
+            class="text-xs font-mono uppercase tracking-wider text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5"
+            title="Return to main portfolio"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            kovalovs.lv
+          </a>
+          <span class="text-zinc-600">|</span>
+          <span class="text-xs font-medium text-emerald-400">Director of AI Development</span>
+          <a
+            href="/cv"
+            class="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 bg-zinc-800/80 hover:bg-zinc-700/80 px-2 py-0.5 rounded border border-zinc-700/60 transition-colors"
+            title="Switch to CTO / VP of Engineering CV"
+          >
+            CTO Edition →
+          </a>
+          <a
+            href="/cv2"
+            class="text-[11px] font-mono text-amber-400 hover:text-amber-300 bg-zinc-800/80 hover:bg-zinc-700/80 px-2 py-0.5 rounded border border-zinc-700/60 transition-colors"
+            title="Switch to Head of IT & Business Technology CV"
+          >
+            Head of IT Edition →
+          </a>
+          <span class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Dynamic tenure active (<span id="toolbar-tenure">{initialMaponTenure}</span>)
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            onclick="window.print()"
+            class="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white text-xs font-medium rounded-md shadow-sm transition-colors cursor-pointer"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print / Save PDF</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main CV Sheet Container -->
+    <main class="py-6 sm:py-10 px-2 sm:px-4">
+      <!-- ================= PAGE 1 ================= -->
+      <article class="cv-paper cv-page-1 flex flex-col" id="cv-page-1">
+        <!-- Header Area -->
+        <div class="cv-page-1-header text-center pt-1 pb-2">
+          <CvEmblem />
+          <h1 class="cv-font-mono text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 mt-1">
+            Curriculum Vitae
+          </h1>
+          <CvChainLogo />
+          <h2 class="cv-font-mono text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight mt-1">
+            {cv3Data.personal.name}
+          </h2>
+          <p class="cv-font-mono text-xs sm:text-[13px] font-semibold text-zinc-900 tracking-tight mt-1">
+            {cv3Data.personal.title}
+          </p>
+          <p class="cv-font-sans text-xs sm:text-[12px] text-zinc-600 mt-0.5">
+            {cv3Data.personal.subtitle}
+          </p>
+        </div>
+
+        <!-- Contacts Section -->
+        <section class="cv-contacts-section mt-6 mb-6 border-t border-b border-zinc-300/80 py-3">
+          <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-1 text-center sm:text-left">
+            Contacts
+          </h3>
+          <div class="cv-contacts-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 text-xs sm:text-[13px] cv-font-mono text-zinc-800">
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-zinc-900 min-w-[82px]">Email:</span>
+              <a
+                href={`mailto:${cv3Data.personal.contacts.email}`}
+                class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+              >
+                {cv3Data.personal.contacts.email}
+              </a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-zinc-900 min-w-[82px]">Phone:</span>
+              <a
+                href={`tel:${cv3Data.personal.contacts.phone.replace(/\s+/g, '')}`}
+                class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+              >
+                {cv3Data.personal.contacts.phone}
+              </a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-zinc-900 min-w-[82px]">LinkedIn:</span>
+              <a
+                href={cv3Data.personal.contacts.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+              >
+                {cv3Data.personal.contacts.linkedin}
+              </a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-zinc-900 min-w-[82px]">Portfolio:</span>
+              <a
+                href={cv3Data.personal.contacts.portfolioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-zinc-800 hover:text-indigo-600 underline underline-offset-2 decoration-zinc-400"
+              >
+                {cv3Data.personal.contacts.portfolio}
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2 Columns: Education (Left) & Work Experience (Right) -->
+        <div class="cv-timeline-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mt-6">
+          <!-- Left Column: Education -->
+          <section class="cv-education-col">
+            <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2.5 border-b border-zinc-200 pb-1">
+              Education
+            </h3>
+            <div class="space-y-3.5 text-xs sm:text-[13px]">
+              {cv3Data.education.map((item) => (
+                <div class="cv-timeline-item space-y-0.5">
+                  <p class="italic text-zinc-800 leading-tight cv-font-mono">
+                    <span class="text-zinc-600 mr-1">↬</span>
+                    <span>{item.period} {item.institution}</span>
+                  </p>
+                  <p class="cv-font-sans text-zinc-800 font-normal pl-4 leading-tight">
+                    {item.degree}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- Right Column: Work experience -->
+          <section class="cv-experience-col">
+            <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2.5 border-b border-zinc-200 pb-1">
+              Work experience
+            </h3>
+            <div class="space-y-3.5 text-xs sm:text-[13px]">
+              {/* 1. AS Mapon - Dynamic tenure */}
+              <div class="cv-timeline-item space-y-0.5">
+                <p class="italic text-zinc-800 leading-tight cv-font-mono">
+                  <span class="text-zinc-600 mr-1">↬</span>
+                  <span>Since Mar. 2025</span>{' '}
+                  <span
+                    id="mapon-tenure"
+                    data-start-year={maponExperience?.startYear}
+                    data-start-month={maponExperience?.startMonth}
+                    class="text-zinc-700"
+                  >
+                    ({initialMaponTenure})
+                  </span>
+                </p>
+                <p class="font-bold text-zinc-900 pl-4 cv-font-mono leading-tight">
+                  AS Mapon
+                </p>
+                <p class="italic text-zinc-700 pl-4 cv-font-sans leading-tight">
+                  {maponExperience?.role || 'Engineering Manager'}
+                </p>
+              </div>
+
+              {/* Other work experiences */}
+              {cv3Data.experience
+                .filter((e) => !e.isCurrent)
+                .map((item) => (
+                  <div class="cv-timeline-item space-y-0.5">
+                    <p class="italic text-zinc-800 leading-tight cv-font-mono">
+                      <span class="text-zinc-600 mr-1">↬</span>
+                      <span>{item.periodText}</span>
+                    </p>
+                    <p class="font-bold text-zinc-900 pl-4 cv-font-mono leading-tight">
+                      {item.company}
+                    </p>
+                    <p class="italic text-zinc-700 pl-4 cv-font-sans leading-tight">
+                      {item.role}
+                    </p>
+                  </div>
+                ))}
+            </div>
+          </section>
+        </div>
+
+        <!-- Experience and Qualities (Bottom of Page 1) -->
+        <section class="cv-qualities-section mt-6 pt-4 border-t border-zinc-300/80">
+          <h3 class="cv-font-mono text-sm sm:text-base font-bold text-zinc-900 mb-2.5 text-center sm:text-left">
+            Experience and Qualities
+          </h3>
+          <div class="cv-qualities-grid grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs sm:text-[13px] cv-font-mono">
+            <!-- Column 1 -->
+            <div class="space-y-3">
+              {cv3Data.qualities[0].map((item) => (
+                <div class="flex items-start gap-1.5 leading-snug">
+                  <span class="text-emerald-700 font-bold shrink-0">✓</span>
+                  <span class="text-zinc-800">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- Column 2 -->
+            <div class="space-y-3">
+              {cv3Data.qualities[1].map((item) => (
+                <div class="flex items-start gap-1.5 leading-snug">
+                  <span class="text-emerald-700 font-bold shrink-0">✓</span>
+                  <span class="text-zinc-800">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <!-- Visual divider on screen (hidden when printed) -->
+      <div class="no-print print:hidden max-w-[210mm] mx-auto text-center my-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-400">
+          <span>Page 1 / 2</span>
+          <span class="text-zinc-600">•</span>
+          <span>A4 Sheet Separator</span>
+        </div>
+      </div>
+
+      <!-- ================= PAGE 2 ================= -->
+      <article class="cv-paper cv-page-2 flex flex-col justify-between" id="cv-page-2">
+        <div>
+          <!-- Header Area of Page 2 -->
+          <div class="cv-page-2-header text-center pt-2 pb-8">
+            <CvEmblem />
+            <CvChainLogo />
+            <h2 class="cv-page-2-title cv-font-mono text-lg sm:text-xl font-bold text-zinc-900 tracking-tight mt-2">
+              AI Leadership Scope &amp; Technical Governance
+            </h2>
+          </div>
+
+          <!-- Responsibilities 2-Column Grid (Row-aligned) -->
+          <div class="cv-responsibilities-grid grid grid-cols-1 md:grid-cols-2 gap-x-10 sm:gap-x-12 gap-y-8 sm:gap-y-10 text-xs sm:text-[13px]">
+            {[
+              cv3Data.responsibilities[0], // Row 1, Col 1: AI Strategy, Business Portfolio & ROI
+              cv3Data.responsibilities[3], // Row 1, Col 2: Applied GenAI, LLMs & Agentic Systems
+              cv3Data.responsibilities[1], // Row 2, Col 1: People Leadership & Enterprise AI Culture
+              cv3Data.responsibilities[4], // Row 2, Col 2: Data Governance, Security & Responsible AI
+              cv3Data.responsibilities[2], // Row 3, Col 1: Build vs Buy, Vendor Partnerships & Budget
+              cv3Data.responsibilities[5], // Row 3, Col 2: MLOps, Production Reliability & Enterprise SLAs
+            ].map((group) => (
+              <div class="cv-resp-group space-y-2">
+                <h3 class="cv-resp-title cv-font-mono font-bold text-zinc-900 italic text-[13.5px] sm:text-[14px]">
+                  {group.title}
+                </h3>
+                <ul class="cv-resp-list list-none pl-0 space-y-2">
+                  {group.bullets.map((bullet) => (
+                    <li class="cv-resp-item list-none flex items-start gap-2.5 leading-relaxed">
+                      <span class="text-zinc-700 font-normal shrink-0 text-xs mt-0.5 select-none">❖</span>
+                      <span class="text-zinc-800 cv-font-mono text-xs sm:text-[13px]">
+                        <strong class="font-bold text-zinc-900 not-italic mr-1">{bullet.lead}</strong>
+                        <span class="italic text-zinc-700">{bullet.text}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </article>
+    </main>
+
+    <!-- Client-side real-time tenure updater script -->
+    <script is:inline>
+      (function () {
+        function calculateLiveTenure(startYear, startMonth) {
+          var now = new Date();
+          var currentYear = now.getFullYear();
+          var currentMonth = now.getMonth() + 1; // 1-12
+
+          var totalMonths = (currentYear - startYear) * 12 + (currentMonth - startMonth);
+          if (totalMonths < 0) totalMonths = 0;
+
+          var years = Math.floor(totalMonths / 12);
+          var months = totalMonths % 12;
+
+          var yearPart = years > 0 ? years + (years === 1 ? ' year' : ' years') : '';
+          var monthPart = months > 0 ? months + (months === 1 ? ' month' : ' months') : '';
+
+          if (yearPart && monthPart) {
+            return yearPart + ' ' + monthPart;
+          }
+          if (yearPart) {
+            return yearPart;
+          }
+          return monthPart || '0 months';
+        }
+
+        function updateTenureElements() {
+          var el = document.getElementById('mapon-tenure');
+          if (!el) return;
+
+          var startYear = parseInt(el.getAttribute('data-start-year') || '2025', 10);
+          var startMonth = parseInt(el.getAttribute('data-start-month') || '3', 10);
+          var tenure = calculateLiveTenure(startYear, startMonth);
+
+          el.textContent = '(' + tenure + ')';
+
+          var toolbarEl = document.getElementById('toolbar-tenure');
+          if (toolbarEl) {
+            toolbarEl.textContent = tenure;
+          }
+        }
+
+        // Run immediately on load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', updateTenureElements);
+        } else {
+          updateTenureElements();
+        }
+      })();
+    </script>
+  </body>
+</html>
