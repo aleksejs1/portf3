@@ -84,7 +84,7 @@ export function calculateTenure(
 export const cvData: CvData = {
   personal: {
     name: 'Aleksejs Kovaļovs',
-    title: 'CTO / VP of Engineering Candidate · 15+ Years Experience',
+    title: 'Director of AI Development Candidate · 15+ Years Experience',
     subtitle: 'Riga, Latvia · Born in 1990 (Age 36)',
     contacts: {
       email: 'aleks4444@inbox.lv',
@@ -164,27 +164,27 @@ export const cvData: CvData = {
   ],
   qualities: [
     [
-      'Core Banking Reliability & 400,000+ IoT Real-Time Devices, Distributed High-Load Architecture',
-      'Operational Excellence, Incident Response & On-Call Rituals, Security & Compliance, Observability',
-      'Technical Architecture & Microservices, Pragmatic Modernization (PHP, Go, Cloud, CI/CD)'
+      'Applied ML & LLM Evolution (2010–Present): University ML exposure (2010), pre-LLM fraud neural nets (2022), RAG support bots, and on-premise LLM spam filters (2025)',
+      '10x AI SDLC Transformation (Mapon): Rebuilt team workflow where AI executes ~90% of tasks from refinement & coding to stage testing, Jira & sprint repo reporting',
+      'Core Banking & High-Load Scale: 5.5 yrs DNB Bank rigor, millions of daily users at inbox.lv (99.9%+ availability), 400,000+ real-time IoT devices at Mapon'
     ],
     [
-      'Engineering Leadership (7 Direct Reports), Cross-Team Alignment (9 Peer Teams), Psych Safety',
-      'Strategic Tech Roadmaps, Delivery Predictability & Velocity, ROI & Tech Investment Prioritization',
-      'Riga Tech Hub Site Leadership & Hiring, Mentorship, Executive & Cross-Functional Alignment'
+      'People Leadership & Sustainable Pacing: Leading 7 direct reports (9 peer teams), psychological safety, IT exit interviews, and managing 10x cognitive load to prevent burnout',
+      'Hands-On Agentic Engineering: Returned to coding via AI without an IDE — resolving legacy memory leaks & logs at work; built Ari CRM (MCP) & Obsidian plugin (2,000+ downloads)',
+      'Strategic Roadmaps & Delivery Predictability: Quarterly OKR planning with Product & Executive leadership, Architecture Decision Records (ADRs), and automated CI/CD & E2E quality gates'
     ]
   ],
   responsibilities: [
     {
-      title: 'People Leadership & Culture',
+      title: 'People Leadership, Pacing & Culture',
       bullets: [
         {
           lead: 'Drive psychological safety',
           text: 'and a blameless culture, leading a high-trust engineering team of 7 direct reports'
         },
         {
-          lead: 'Accelerate engineer growth',
-          text: 'via structured 1-on-1s, transparent career paths, and proactive burnout prevention'
+          lead: 'Guard against 10x burnout',
+          text: 'recognizing that 10x AI velocity causes acute mental fatigue; tracking team state and pacing work via structured 1-on-1s'
         },
         {
           lead: 'Conduct exit interviews',
@@ -193,87 +193,87 @@ export const cvData: CvData = {
       ]
     },
     {
-      title: 'Applied AI & Innovation',
+      title: '10x AI SDLC & Team Enablement (Mapon)',
       bullets: [
         {
-          lead: 'Introduce practical AI tools',
-          text: 'and custom domain skills to eliminate repetitive engineering toil'
+          lead: 'Rebuild SDLC around AI (~90%)',
+          text: 'automating task creation, analysis, refinement, meeting question prep, implementation, and deployment plans'
         },
         {
-          lead: 'Lead hands-on workshops',
-          text: 'upskilling engineers in agentic workflows, prompt engineering, and modern AI tooling'
+          lead: 'Automate reviews, QA & reporting',
+          text: 'running AI-driven local and external code reviews, test environment validation, Jira updates, and sprint repo reporting'
         },
         {
-          lead: 'Build rapid AI-assisted PoCs',
-          text: 'to test new architectures and validate feasibility before full commitments'
+          lead: 'Lead hands-on AI workshops',
+          text: 'upskilling engineers in agentic workflows while accounting for human meta-context that AI cannot digitize'
         }
       ]
     },
     {
-      title: 'Strategy, OKRs & Delivery',
+      title: 'ML & On-Premise LLM Projects (inbox.lv)',
+      bullets: [
+        {
+          lead: 'Lead pre-LLM fraud detection',
+          text: 'guided an engineer in late 2022 in training a neural network to classify new registrations as real users, bots, or fraudsters'
+        },
+        {
+          lead: 'Build LLM & RAG PoCs',
+          text: 'led development of an AI email translator PoC and a support agent powered by a vector database of internal documentation'
+        },
+        {
+          lead: 'Deploy on-premise spam LLMs',
+          text: 'connected LLMs to spam filters in 2025 using dedicated self-hosted hardware to keep sensitive email data off the cloud'
+        }
+      ]
+    },
+    {
+      title: 'Hands-On AI Coding & Architecture',
+      bullets: [
+        {
+          lead: 'Resolve complex legacy issues',
+          text: 'returned to coding via AI (nearly IDE-free) on a massive legacy codebase: handling support, cross-team requests, log analysis, and memory leaks'
+        },
+        {
+          lead: 'Build AI-native pet projects',
+          text: 'created Ari CRM (plugin architecture, MCP, full tests/linters), Encrypted 1-on-1 (E2EE), and an Obsidian plugin (2,000+ downloads)'
+        },
+        {
+          lead: 'Set architectural guardrails',
+          text: 'maintaining shared technical alignment and consolidating fragmented solutions into reusable platforms across 9 peer teams'
+        }
+      ]
+    },
+    {
+      title: 'Strategy, OKRs & Cross-Team Alignment',
       bullets: [
         {
           lead: 'Influence technical strategy',
-          text: 'and lead quarterly roadmap planning tied directly to business KPIs'
+          text: 'partnering with Product and Executive leadership on quarterly roadmap planning, resource trade-offs, and technical priorities'
         },
         {
           lead: 'Define team OKRs',
-          text: 'and delivery milestones, ensuring high focus, transparent velocity, and accountability'
+          text: 'and delivery milestones, unblocking cross-team dependencies, mitigating operational risks, and elevating observability'
         },
         {
-          lead: 'Manage end-to-end delivery',
-          text: 'unblocking dependencies, mitigating operational risks, and elevating observability'
+          lead: 'Modernize documentation & ADRs',
+          text: 'facilitating architecture forums, implementing Architecture Decision Records, and maintaining a single source of truth'
         }
       ]
     },
     {
-      title: 'Architecture & Standards',
-      bullets: [
-        {
-          lead: 'Set architectural guardrails',
-          text: 'and maintain shared technical alignment across all 9 peer engineering teams'
-        },
-        {
-          lead: 'Balance product velocity',
-          text: 'with platform resilience, technical debt reduction, and zero-downtime reliability'
-        },
-        {
-          lead: 'Consolidate fragmented solutions',
-          text: 'into standardized, reusable shared platforms and services'
-        }
-      ]
-    },
-    {
-      title: 'Cross-Team Alignment & SDLC',
-      bullets: [
-        {
-          lead: 'Partner with Product leadership',
-          text: 'on roadmaps, resource trade-offs, and technical investment priorities'
-        },
-        {
-          lead: 'Modernize the SDLC',
-          text: 'and organize engineering architecture and documentation into a single source of truth'
-        },
-        {
-          lead: 'Facilitate architecture forums',
-          text: 'and implement Architecture Decision Records (ADRs) for collective consensus'
-        }
-      ]
-    },
-    {
-      title: 'Platform, CI/CD & Quality Engineering',
+      title: 'Platform, CI/CD & Operational Rigor',
       bullets: [
         {
           lead: 'Champion automated cloud CI/CD',
-          text: 'resolving day-long manual frontend build merge locks across teams'
-        },
-        {
-          lead: 'Optimize build performance',
-          text: 'and cloud runner resource consumption to accelerate deployment cadence'
+          text: 'resolving day-long manual frontend build merge locks and optimizing cloud runner resource consumption'
         },
         {
           lead: 'Introduce automated E2E testing',
-          text: 'rituals to prevent release regressions and protect release confidence'
+          text: 'establishing end-to-end testing rituals to prevent release regressions and protect deployment confidence'
+        },
+        {
+          lead: 'Core banking & high-load roots',
+          text: '5.5 years in DNB core banking systems and 5 years building high-throughput mail services handling millions of daily messages'
         }
       ]
     }

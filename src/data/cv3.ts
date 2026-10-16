@@ -4,7 +4,7 @@ export { calculateTenure } from './cv';
 export const cv3Data: CvData = {
   personal: {
     name: 'Aleksejs Kovaļovs',
-    title: 'Director of AI Development Candidate · 15+ Years Tech & Leadership Experience',
+    title: 'CTO / VP of Engineering Candidate · 15+ Years Experience',
     subtitle: 'Riga, Latvia · Born in 1990 (Age 36)',
     contacts: {
       email: 'aleks4444@inbox.lv',
@@ -24,7 +24,7 @@ export const cv3Data: CvData = {
     {
       period: '2009-2013',
       institution: 'Institute of Transport and Telecommunications',
-      degree: 'Bachelor’s degree in Electrical Engineering (ML Foundations in 2010)'
+      degree: 'Bachelor’s degree in Electrical Engineering'
     },
     {
       period: '2011',
@@ -49,7 +49,7 @@ export const cv3Data: CvData = {
       endMonth: 3,
       periodText: 'Jan. 2022 – Mar. 2025 (3 years 2 months)',
       company: 'SIA Inbokss (inbox.lv)',
-      role: 'Technical Project Manager / Tech Lead'
+      role: 'Project Manager / technical lead'
     },
     {
       id: 'zardi',
@@ -69,7 +69,7 @@ export const cv3Data: CvData = {
       endMonth: 11,
       periodText: 'Nov. 2016 – Nov. 2021 (5 years)',
       company: 'SIA Inbokss (inbox.lv)',
-      role: 'PHP Developer / High-Load Distributed Systems'
+      role: 'PHP Developer / pp.lv backend team'
     },
     {
       id: 'dnb',
@@ -79,121 +79,121 @@ export const cv3Data: CvData = {
       endMonth: 11,
       periodText: 'Apr. 2011 – Nov. 2016 (5 years 8 months)',
       company: 'AS DNB Banka',
-      role: 'Functional Analyst / Core Banking Team'
+      role: 'Functional Analyst / core banking team'
     }
   ],
   qualities: [
     [
-      'Early ML & Bot Defense (2010–2022): ML academic foundation (2010); led production neural net training in late 2022 detecting bot registrations & fraud before the LLM boom',
-      'Data Sovereignty & On-Premise LLMs: Procured dedicated on-prem hardware for inbox.lv spam filtering & RAG support bots to process sensitive communications without cloud leakage',
-      'Legacy Systems Navigation via AI: Operating within org-wide AI adoption at Mapon; leveraged agentic workflows to master a massive legacy codebase, personally resolving memory leaks and log anomalies without IDE overhead'
+      'Core Banking Reliability & 400,000+ IoT Real-Time Devices, Distributed High-Load Architecture',
+      'Operational Excellence, Incident Response & On-Call Rituals, Security & Compliance, Observability',
+      'Technical Architecture & Microservices, Pragmatic Modernization (PHP, Go, Cloud, CI/CD)'
     ],
     [
-      'Full-Lifecycle 10x SDLC Automation: Rebuilt team SDLC with ~90% AI automation from refinement and Jira reporting to implementation, automated testing, and deployment plans',
-      'The Meta-Context Reality: Pragmatic recognition that AI cannot replace humans: critical undocumented enterprise context makes human judgment the essential lever for 10x delivery',
-      'Cognitive Load & Burnout Prevention: Battle-tested insight that 10x velocity induces acute mental fatigue; sustainable AI scaling requires psychological safety, pacing, and vigilance'
+      'Engineering Leadership (7 Direct Reports), Cross-Team Alignment (9 Peer Teams), Psych Safety',
+      'Strategic Tech Roadmaps, Delivery Predictability & Velocity, ROI & Tech Investment Prioritization',
+      'Riga Tech Hub Site Leadership & Hiring, Mentorship, Executive & Cross-Functional Alignment'
     ]
   ],
   responsibilities: [
     {
-      title: 'AI Strategy, Pragmatic ROI & Business Value',
+      title: 'People Leadership & Culture',
       bullets: [
         {
-          lead: 'Filter hype from production ROI',
-          text: 'validating AI business cases with empirical data; prioritizing initiatives that deliver measurable cost reduction and operational velocity'
+          lead: 'Drive psychological safety',
+          text: 'and a blameless culture, leading a high-trust engineering team of 7 direct reports'
         },
         {
-          lead: 'Align AI with business goals',
-          text: 'identifying high-impact use cases across customer self-service, internal workflows, and operational efficiency without chasing empty trends'
+          lead: 'Accelerate engineer growth',
+          text: 'via structured 1-on-1s, transparent career paths, and proactive burnout prevention'
         },
         {
-          lead: 'Disciplined Build vs Buy analysis',
-          text: 'evaluating whether to procure dedicated on-premise compute, utilize commercial foundation model APIs, or build custom internal pipelines'
+          lead: 'Conduct exit interviews',
+          text: 'across the IT department, analyzing feedback to systematically improve team retention'
         }
       ]
     },
     {
-      title: 'People Leadership, 10x SDLC & Culture',
+      title: 'Applied AI & Innovation',
       bullets: [
         {
-          lead: 'Automate 90% of development SDLC',
-          text: 'orchestrating AI agents across task creation, refinement, code implementation, automated testing, Jira reporting, and deployment'
+          lead: 'Introduce practical AI tools',
+          text: 'and custom domain skills to eliminate repetitive engineering toil'
         },
         {
-          lead: 'Lead 18+ engineer departments',
-          text: 'fostering high psychological safety, transparent career progression, and collective accountability across multi-disciplinary technical streams'
+          lead: 'Lead hands-on workshops',
+          text: 'upskilling engineers in agentic workflows, prompt engineering, and modern AI tooling'
         },
         {
-          lead: 'Guard against cognitive burnout',
-          text: 'actively monitoring developer mental fatigue and pacing sprints to prevent cognitive exhaustion under intense 10x delivery velocity'
+          lead: 'Build rapid AI-assisted PoCs',
+          text: 'to test new architectures and validate feasibility before full commitments'
         }
       ]
     },
     {
-      title: 'Legacy Codebases & Deep Problem Solving',
+      title: 'Strategy, OKRs & Delivery',
       bullets: [
         {
-          lead: 'Navigate complex legacy monoliths',
-          text: 'embracing org-wide AI harness adoption within my engineering team, mastering a massive legacy codebase to accelerate fixes and eliminate knowledge silos'
+          lead: 'Influence technical strategy',
+          text: 'and lead quarterly roadmap planning tied directly to business KPIs'
         },
         {
-          lead: 'Hands-on root cause investigation',
-          text: 'personally diagnosing complex memory leaks, concurrency bottlenecks, and distributed log anomalies leveraging agentic analysis'
+          lead: 'Define team OKRs',
+          text: 'and delivery milestones, ensuring high focus, transparent velocity, and accountability'
         },
         {
-          lead: 'Unblock cross-team requests',
-          text: 'accelerating ad-hoc support escalations and neighboring team requests directly in production code without relying on traditional IDEs'
+          lead: 'Manage end-to-end delivery',
+          text: 'unblocking dependencies, mitigating operational risks, and elevating observability'
         }
       ]
     },
     {
-      title: 'Applied GenAI, Agentic Harnesses & Proofs',
+      title: 'Architecture & Standards',
       bullets: [
         {
-          lead: 'Engineer agentic workflows',
-          text: 'architecting custom agent harnesses and Model Context Protocol (MCP) integrations to automate complex multi-step technical operations'
+          lead: 'Set architectural guardrails',
+          text: 'and maintain shared technical alignment across all 9 peer engineering teams'
         },
         {
-          lead: 'Demystify model boundaries',
-          text: 'navigating LLM reasoning limits, context constraints, and token economics to match the right model to each specific domain task'
+          lead: 'Balance product velocity',
+          text: 'with platform resilience, technical debt reduction, and zero-downtime reliability'
         },
         {
-          lead: 'Architectural pet project proof',
-          text: 'built Ari CRM (full test coverage, linters, MCP) and Obsidian Sync (2,000+ community downloads) proving complete zero-code execution'
+          lead: 'Consolidate fragmented solutions',
+          text: 'into standardized, reusable shared platforms and services'
         }
       ]
     },
     {
-      title: 'Data Sovereignty, On-Premise & Security',
+      title: 'Cross-Team Alignment & SDLC',
       bullets: [
         {
-          lead: 'Dedicated on-premise hardware',
-          text: 'proven experience procuring dedicated servers to run local LLMs on-premise when customer communications cannot touch third-party clouds'
+          lead: 'Partner with Product leadership',
+          text: 'on roadmaps, resource trade-offs, and technical investment priorities'
         },
         {
-          lead: 'Enforce regulatory compliance',
-          text: 'partnering with legal and compliance to ensure AI systems strictly follow GDPR, the EU AI Act, and enterprise data protection standards'
+          lead: 'Modernize the SDLC',
+          text: 'and organize engineering architecture and documentation into a single source of truth'
         },
         {
-          lead: 'Mitigate operational model risks',
-          text: 'instituting guardrails against hallucinations, prompt injection vulnerabilities, biased outputs, and private data leakage in customer systems'
+          lead: 'Facilitate architecture forums',
+          text: 'and implement Architecture Decision Records (ADRs) for collective consensus'
         }
       ]
     },
     {
-      title: 'Production Reliability & Systems Evolution',
+      title: 'Platform, CI/CD & Quality Engineering',
       bullets: [
         {
-          lead: 'Early ML to modern LLM solutions',
-          text: 'hands-on evolution from 2022 user bot/fraud classification neural nets to documentation vector RAG support agents and LLM spam filters'
+          lead: 'Champion automated cloud CI/CD',
+          text: 'resolving day-long manual frontend build merge locks across teams'
         },
         {
-          lead: 'Automated testing & review gates',
-          text: 'embedding AI-driven local code review, test suite generation, and staging verification into continuous integration pipelines'
+          lead: 'Optimize build performance',
+          text: 'and cloud runner resource consumption to accelerate deployment cadence'
         },
         {
-          lead: 'Maintain 99.9%+ enterprise SLAs',
-          text: 'applying 10+ years of high-load distributed systems discipline to ensure AI-powered services run with zero downtime and strict SLAs'
+          lead: 'Introduce automated E2E testing',
+          text: 'rituals to prevent release regressions and protect release confidence'
         }
       ]
     }
